@@ -56,7 +56,7 @@
                         </a>
                     @endif
                     <a class="link-warning ms-custom" href="#">
-                        {{ __('Sign up if you\'\re new') }}
+                        {{ __('Sign up if you\'re new') }}
                     </a>
                 </div>
             </form>
