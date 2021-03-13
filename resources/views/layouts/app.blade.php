@@ -10,6 +10,10 @@
     <title>{{ config('app.name', 'Rapportooze') }}</title>
 
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/9d3ccc59e0.js" crossorigin="anonymous"></script>
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
@@ -30,8 +34,8 @@
                 <div class="container pt-4 d-flex justify-content-between">
                     <a class="navbar-brand text-light" href="{{route('home')}}">Rapportooze</a>
                     <div>
-                        <a href="#" class="btn text-light me-md-2" style="text-shadow: 2px 2px 2px #000;">Log in</a>
-                        <a href="#" class="btn btn-outline-light rounded-pill border-3 w-10">Sign up</a>
+                        <a href="{{ route('login') }}" class="btn text-light me-md-2" style="text-shadow: 2px 2px 2px #000;">Log in</a>
+                        <a href="{{ route('register') }}" class="btn btn-outline-light rounded-pill border-3 w-10">Sign up</a>
                     </div>
                 </div>
             @else

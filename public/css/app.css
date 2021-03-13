@@ -15,7 +15,9 @@
 }
 
 * {
-  color:antiquewhite;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 body {
@@ -24,15 +26,96 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
-.box-login {
+.container-custom {
+  position: absolute;
+  min-width: 470px;
+  margin: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ctn-custom {
+  position: relative;
   border-radius: 1%;
-  padding: 30px 50px;
-  margin-top: 20vh;
+  padding: 1;
+}
+
+.fc-white {
+  color:beige;
+}
+
+.card-custom {
+  position: relative;
+  height: 100%;
+  border-radius: 1%;
+  background: rgba(24, 24, 16, .2);
+  backdrop-filter: blur(40px);
+  padding: 30px 60px;
+  -webkit-box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
+}
+
+.ctn-custom .box-log-reg {
+  position: relative;
+  height: 100%;
+  border-radius: 1%;
+  padding: 30px 60px;
+  margin-top: 10vh;
   -webkit-box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
   background: rgba(24, 24, 16, .2);
   backdrop-filter: blur(40px);
+}
+
+.ctn-custom .Input-custom {
+  border-radius: 25px;
+  padding: 10px;
+  padding-left: 50px;
+  border: none;
+  -webkit-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+}
+
+.ctn-custom .w-custom {
+  width: 90%;
+}
+
+input:focus {
+  outline: none;
+}
+
+.form-custom {
+  position: ab;
+  margin-top: 50px;
+}
+
+.ctn-custom .fas {
+  position: relative;
+  color: #bb36fd;
+  left: 36px;
+}
+
+.btn-custom {
+  background: linear-gradient(45deg, #bb36fd, #9b00e8);
+  color: #fff;
+  width: 230px;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  -webkit-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+  box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+}
+
+.ctn-custom .btn-custom:hover {
+  background: linear-gradient(45deg, #c85bff, #b726ff);
+}
+.ctn-custom .btn-custom:focus {
+  outline: none;
 }
 
 .fs-small {
@@ -101,9 +184,9 @@ body {
   width: 220px;
 }
 
-button {
+/* btn {
   margin-left: 40px;
-}
+} */
 
 .input-group .inputLabel {
   position: relative;
