@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 500px;">
         <div class="col-md-6">
             <div class="card text-center">
                 <h5 class="card-header">{{ __('Forgot password') }}</h5>

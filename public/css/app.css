@@ -14,12 +14,6 @@
   font-style: normal;
 }
 
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -42,7 +36,7 @@ body {
 }
 
 .fc-white {
-  color:beige;
+  color:whitesmoke;
 }
 
 .card-custom {
@@ -73,7 +67,7 @@ body {
 .ctn-custom .Input-custom {
   border-radius: 25px;
   padding: 10px;
-  padding-left: 50px;
+  padding-left: 40px;
   border: none;
   -webkit-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
@@ -131,7 +125,8 @@ input:focus {
   padding-bottom: 15px;
 }
 
-.nav {
+.nav-custom {
+  justify-content: end;
   background: rgba(24, 24, 16, .2);
   backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -177,6 +172,10 @@ input:focus {
 }
 
 .w-10 {
+  width: 45%;
+}
+
+.w-signup-btn {
   width: 130px;
 }
 
