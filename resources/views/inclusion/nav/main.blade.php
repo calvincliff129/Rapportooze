@@ -8,9 +8,9 @@
     </div>
 @else
     <nav class="navbar nav navbar-expand-md nav-custom bg-faded justify-content-center">
-        <div class="container-fluid">
+        <div class="container">
             <a class="navbar-brand d-flex me-auto" href="{{route('home')}}">
-                <img src="{{asset('/image/Rappportooze_Logo.png')}}" style="width:50px" alt="Rapportooze Logo" />
+                <img src="{{asset('/image/Rappportooze_R_no_background.png')}}" style="width:50px" alt="Rapportooze Logo" />
             </a><div class="w-50"></div>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContentCollapse" aria-controls="navbarContentCollapse" aria-expanded="false" aria-label="Toggle navigation">
