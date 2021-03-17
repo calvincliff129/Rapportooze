@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Rapportooze</title>
+    <title>Rapportooze Management</title>
     <!-- <title>{{ config('app.name', 'Rapportooze') }}</title> -->
 
     <!-- Scripts -->
@@ -30,6 +30,7 @@
 <body>
     <div class="banner-image w-100 vh-100" id="app">
         @include('inclusion.nav.main')
+        @include('inclusion.nav.manage')
         @yield('content')
     </div>
 </body>

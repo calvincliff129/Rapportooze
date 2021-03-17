@@ -14,7 +14,7 @@
                     <input id="email" type="email" class="Input-custom w-custom @error('email') is-invalid @enderror" placeholder="Email address" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                     @error('email')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback text-center" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
@@ -25,7 +25,7 @@
                     <input id="password" type="password" class="Input-custom w-custom @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
 
                     @error('password')
-                        <span class="invalid-feedback" role="alert">
+                        <span class="invalid-feedback text-center" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror

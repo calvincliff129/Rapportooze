@@ -14,16 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
-Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
-    Route::get('/', 'AdminController@home');
-    Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
+Route::prefix('manage')->middleware('role:administrator')->group(function () {
+    Route::get('/', 'App\Http\Controllers\ManageController@index');
+    Route::get('/dashboard', 'App\Http\Controllers\ManageController@dashboard')->name('manage.dashboard');
 });
 
-Route::get('dashboard', 'App\Http\Controllers\UserController@dashboard')->middleware('auth');
+// Route::get('dashboard', 'App\Http\Controllers\UserController@dashboard')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -15,7 +15,7 @@
                         <input id="name" type="text" class="Input-custom w-custom @error('name') is-invalid @enderror" placeholder="Name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                         @error('name')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback text-center" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -26,7 +26,7 @@
                         <input id="email" type="email" class="Input-custom w-custom @error('email') is-invalid @enderror" placeholder="Email address" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                         @error('email')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback text-center" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
@@ -35,16 +35,16 @@
                     <div class="col-sm mb-5 me-4">
                         <i class="fas fa-key"></i>
                         <input id="password" type="password" class="Input-custom w-10 @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password">
-
+                        
+                        <i class="fas fa-lock"></i>
+                        <input id="password-confirm" type="password" class="Input-custom w-10" placeholder="Confirm password" name="password_confirmation" required autocomplete="new-password">
+                    
                         @error('password')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback text-center" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-
-                        <i class="fas fa-lock"></i>
-                        <input id="password-confirm" type="password" class="Input-custom w-10" placeholder="Confirm password" name="password_confirmation" required autocomplete="new-password">
-                    </div>
+                        </div>
 
                     <div class="form-group mb-4 row justify-content-center">
                         <button type="submit" class="btn-custom mx-auto py-custom">
