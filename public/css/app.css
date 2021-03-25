@@ -20,6 +20,11 @@ body {
   font-family: Helvetica, sans-serif;
 }
 
+button:focus
+{
+    outline:none;
+}
+
 .container-custom {
   position: absolute;
   min-width: 470px;
@@ -37,6 +42,10 @@ body {
 
 .fc-white {
   color:whitesmoke;
+}
+
+.blur-ctn {
+  backdrop-filter: blur(40px);
 }
 
 .card-custom {
@@ -83,7 +92,7 @@ input:focus {
 }
 
 .form-custom {
-  position: ab;
+  position: absolute;
   margin-top: 50px;
 }
 
@@ -171,6 +180,106 @@ input:focus {
   background-size: cover;
 }
 
+/* Nav button color */
+.btn-purple {
+  background-color:#D9D4D3 !important;
+  border-color:#D9D4D3 !important;
+  color: dimgray;
+  box-shadow: 0px 0px 5px 5px rgba(46, 54, 68, 0.04);
+
+}
+
+.btn-purple:hover,
+.btn-purple:active,
+.btn-purple:visited,
+.btn-purple:focus {
+  background-color:#80348e !important;
+  border-color: #80348e !important;
+  color:antiquewhite;
+}
+/* End nav button color */
+
+/* Search bar animation */
+.wrapper {
+  position: relative;
+  top: 0%;
+  right: 20%;
+  transform: translate(-50%, -50%);
+}
+
+.search-box {
+  width: 100px;
+  height: 70px;
+  position: relative;
+
+}
+
+.input-search {
+  position: absolute;
+  
+  right: 50px;
+  box-sizing: border-box;
+  width: 0px;
+  height: 40px;
+  padding: 0 20px;
+  outline: none;
+  font-size: 18px;
+  border-radius: 50px;
+  color: #29313a;
+  border: 2px solid #9a2fae;
+  transition: all 0.5s ease;
+}
+
+::-webkit-input-search-placeholder {
+  /* Chrome */
+  color: #9a2fae;
+}
+
+.btn-search {
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  background: #9a2fae;
+  border-radius: 50%;
+  right: 47px;
+  top: -4px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+  color: antiquewhite;
+  transition: all 0.5s ease;
+}
+
+.input-search.active {
+  width: 200px;
+  right: 50px;
+}
+
+.btn-search.animate {
+  transform: rotate(-360deg);
+  right: 50px;
+}
+
+@media (min-width: 768px) {
+  li:hover > ul.dropdown-menu {
+    display: block;
+  }
+  #navbar {
+    text-align: center;
+  }
+/* Search bar animation */
+
+/* .nav .btn-purple:hover {
+  background: linear-gradient(45deg, #c85bff, #b726ff);
+}
+.nav .btn-purple:focus {
+  outline: none;
+} */
+
+.w-nav-btn {
+  width: 155px;
+}
 .w-10 {
   width: 45%;
 }
@@ -186,6 +295,49 @@ input:focus {
 /* btn {
   margin-left: 40px;
 } */
+
+/* Navbar dropdown menu width */
+/* .dropdown-menu {
+  width: 10px !important;
+  height: 400px !important;
+  text-align: center !important;
+} */
+
+@media (max-width: 767px) {
+
+
+  .navbar-nav .dropdown-menu > li > a {
+    color: red;
+    background-color: #ccc;
+    border-radius: 4px;
+    margin-top: 2px;   
+  }
+   .navbar-nav .open .dropdown-menu > li > a {
+     color: #333;
+   }
+   .navbar-nav .open .dropdown-menu > li > a:hover,
+   .navbar-nav .open .dropdown-menu > li > a:focus {
+     background-color: #ccc;
+   }
+
+   .navbar-nav .open .dropdown-menu {
+     border-bottom: 1px solid white; 
+     border-radius: 0;
+   }
+  .dropdown-menu {
+      padding-left: 10px;
+  }
+}
+ 
+@media (min-width: 768px) {
+  li:hover > ul.dropdown-menu {
+    display: block;
+  }
+  #navbar {
+    text-align: center;
+  }
+}
+/* End navbar dropdown menu width */
 
 .input-group .inputLabel {
   position: relative;
@@ -204,10 +356,30 @@ input:focus {
   left: 5;
 }
 
-.dropdown-style {
-  background: rgba(24, 24, 16, .2);
-  backdrop-filter: blur(100px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background-clip: padding-box;
-  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+.sidebar-admin {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  left: 0;
+  margin: 70px 0 0; /* Height of navbar */
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  backdrop-filter: blur(40px);
+  width: 240px;
+  z-index: 600;
+}
+
+.sidebar-admin .active {
+  
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
