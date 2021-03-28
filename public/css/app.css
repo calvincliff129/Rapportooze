@@ -274,8 +274,8 @@ input:focus {
   background: linear-gradient(45deg, #c85bff, #b726ff);
 }
 .nav .btn-purple:focus {
-  outline: none;
-} */
+  outline: none; */
+} 
 
 .w-nav-btn {
   width: 155px;
