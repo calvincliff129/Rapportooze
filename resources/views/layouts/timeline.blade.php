@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Rapportooze Management</title>
+    <title>Rapportooze</title>
     <!-- <title>{{ config('app.name', 'Rapportooze') }}</title> -->
 
     <!-- Scripts -->
@@ -32,9 +32,8 @@
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"> -->
 </head>
 <body>
-    <div class="main-image w-100 vh-100" id="app">
+    <div class="timeline-image w-100 vh-100" id="app">
         @include('inclusion.nav.main')
-        @include('inclusion.nav.manage')
         @yield('content')
     </div>
 </body>

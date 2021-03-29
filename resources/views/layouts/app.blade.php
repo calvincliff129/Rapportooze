@@ -32,7 +32,7 @@
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"> -->
 </head>
 <body>
-    <div class="banner-image w-100 vh-100" id="app">
+    <div class="main-image w-100 vh-100" id="app">
         @include('inclusion.nav.main')
         @yield('content')
     </div>
