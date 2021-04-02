@@ -7,34 +7,52 @@
         </div>
     </div>
 @else
-    <nav class="navbar nav navbar-expand-lg nav-custom bg-faded">
+    <nav class="navbar navbar-expand-md nav-custom">
         <div class="container">
             <div class="d-flex flex-grow-1">
                 <span class="w-50 d-lg-none d-block"></span>
                 <a class="navbar-brand d-none d-lg-inline-block" href="{{route('home')}}">
-                    <img src="{{asset('/image/Rappportooze_R_no_background.png')}}" style="width:50px" alt="Rapportooze Logo" />
+                    <img src="{{asset('/image/Rappportooze_R_no_background.png')}}" style="width:50px" alt="Rapportooze Logo">
                 </a>
-                <a class="navbar-brand-two mx-auto d-lg-none d-inline-block"></a>
+                <a class="navbar-brand-two d-lg-none d-inline-block"></a>
             </div>
 
-            <div class="w-50 text-right">
+            <div class="w-50 justify-content-start">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContentCollapse" aria-controls="navbarContentCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="fas fa-ellipsis-v" style="color: #fffaf0; outline: 0;"></span>
                 </button>
             </div>
 
             <div class="navbar-collapse collapse w-100" id="navbarContentCollapse">
-                <div class="navbar-nav justify-content-center btn-group btn-group-md" role="group" aria-label="Basic example">
-                    <a href="{{route('home')}}" class="btn btn-purple active w-nav-btn" data-mdb-color="dark">
-                        DASHBOARD
-                    </a>
-                    <a class="btn btn-purple w-nav-btn" data-mdb-color="dark">
-                        CONTACTS
-                    </a>
-                    <a class="btn btn-purple w-nav-btn" data-mdb-color="dark">
-                        DIARY
-                    </a>
-                </div>
+                <ul class="navbar-nav" role="group" aria-label="Basic example">
+                    <li class="nav-item">
+                        <a href="{{route('home')}}" class="btn btn-purple smallmenu w-nav-btn no-right-rad" data-mdb-color="dark">
+                            DASHBOARD
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('contact')}}" class="btn btn-purple smallmenu w-nav-btn no-rad" data-mdb-color="dark">
+                            CONTACTS
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('reminder')}}" class="btn btn-purple smallmenu w-nav-btn no-left-rad" data-mdb-color="dark">
+                            DIARY
+                        </a>
+                    </li>
+                   
+                    <!-- Menu for sidebar in smaller devices -->
+                    <li class="nav-item dropdown d-sm-block d-md-none">
+                        <a class="btn btn-purple dropdown-toggle smallmenu" href="#" id="smallscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ADMIN MENU
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="smallscreenmenu">
+                            <a class="dropdown-item" href="{{route('manage.dashboard')}}">Dashboard</a>
+                            <a class="dropdown-item" href="#">Administration</a>
+                        </div>
+                    </li>
+                    <!-- Smaller devices menu END -->
+                </ul>
             </div>
 
             <div class="nav navbar-nav w-50">
@@ -47,10 +65,10 @@
                     </div>
                     <div>
                         <li class="dropdown">
-                            <a type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a type="button" class="btn btn-danger dropdown-toggle" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                            <ul class="dropdown-menu dropdown-menu-dark">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Notification</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>

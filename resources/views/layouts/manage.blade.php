@@ -35,7 +35,9 @@
     <div class="main-image w-100 vh-100" id="app">
         @include('inclusion.nav.main')
         @include('inclusion.nav.manage')
-        @yield('content')
+        <div class="admin-page">
+            @yield('content')
+        </div>
     </div>
 </body>
 </html>

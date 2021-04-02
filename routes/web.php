@@ -22,6 +22,7 @@ Auth::routes();
 Route::prefix('manage')->middleware('role:administrator')->group(function () {
     Route::get('/', 'App\Http\Controllers\ManageController@index');
     Route::get('/dashboard', 'App\Http\Controllers\ManageController@dashboard')->name('manage.dashboard');
+    Route::resource('/users', 'App\Http\Controllers\UserController');
 });
 
 // Route::get('dashboard', 'App\Http\Controllers\UserController@dashboard')->middleware('auth');
