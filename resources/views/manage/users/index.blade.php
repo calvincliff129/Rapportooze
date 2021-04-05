@@ -1,14 +1,16 @@
 @extends('layouts.manage')
 
 @section('content')
-    <div class="container">
+    <div class="container fc-white">
       <div class="">
         <div class="col">
-          <h1 class="title fc-white">Manage Users</h1>
+          <h1 class="title">Manage Users</h1>
         </div>
         <div class="col">
-          <a href="#" class="btn btn-secondary justify-content-end my-3"><i class="fa fa-user-plus me-1"></i> Create New User</a>
+          <a href="{{route('users.create')}}" class="btn btn-secondary justify-content-end my-3"><i class="fa fa-user-plus me-1"></i> Create New User</a>
         </div>
+        <hr class="mt-0">
+
       </div>
           <div class="table-responsive">
             <table class="table table-dark table-sm table-bordered table-hover table-striped text-center">

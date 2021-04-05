@@ -33,3 +33,20 @@ function SidebarCollapse () {
     // Collapse/Expand icon
     $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
 }
+
+// Admin manual password
+var form = $('#editUserForm'),
+radio = $('#manualPass'),
+inputActive = $('#manualPassInput');
+
+inputActive.hide();
+
+radio.on('click', function() {
+    if($(this).is(':checked')) {
+        inputActive.show();
+        inputActive.find('input').attr('required', true);
+    } else {
+        inputActive.hide();
+        inputActive.find('input').attr('required', false);
+    }
+})

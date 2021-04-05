@@ -60,7 +60,7 @@ button:focus
   box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
 }
 
-.ctn-custom .box-log-reg {
+.box-log-reg {
   position: relative;
   height: 100%;
   border-radius: 1%;
@@ -73,7 +73,7 @@ button:focus
   backdrop-filter: blur(40px);
 }
 
-.ctn-custom .Input-custom {
+.Input-custom {
   border-radius: 25px;
   padding: 10px;
   padding-left: 40px;
@@ -83,7 +83,7 @@ button:focus
   box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
 }
 
-.ctn-custom .w-custom {
+.w-custom {
   width: 90%;
 }
 
@@ -347,7 +347,7 @@ input:focus {
 }
 
 #sidebar-container {
-  min-height: 100vh;   
+  min-height: 90.95vh;   
   background-color: rgb(53, 49, 49);
   padding: 0;
   border-top-right-radius: 5px;
@@ -385,5 +385,5 @@ input:focus {
 
 .admin-page {
   margin-left: 14%;
-  margin-top: -48%;
+  margin-top: -41.4%;
 }
