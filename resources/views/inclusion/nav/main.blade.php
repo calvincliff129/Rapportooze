@@ -65,10 +65,10 @@
                     </div>
                     <div>
                         <li class="dropdown">
-                            <a type="button" class="btn btn-danger dropdown-toggle" aria-expanded="false">
+                            <a type="button" class="btn btn-danger dropdown-toggle" id="dropdownMenuBtn" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" style="margin-top: 15px;" aria-labelledby="dropdownMenuBtn">
                                 <li><a class="dropdown-item" href="#">Profile</a></li>
                                 <li><a class="dropdown-item" href="#">Notification</a></li>
                                 <li><a class="dropdown-item" href="#">Settings</a></li>
