@@ -11,14 +11,14 @@
         </div>
       </a>
       <!-- Menu with submenu -->
-      <li>
+      <!-- <li>
         <a href="{{route('manage.dashboard')}}" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
           <div class="w-100 justify-content-start align-items-center">
             <span class="fa fa-dashboard fa-fw me-3"></span> 
             <span class="menu-collapsed">Dashboard</span>
           </div>
         </a>
-      </li>
+      </li> -->
       <li>
         <a href="{{route('users.index')}}" class="bg-dark list-group-item list-group-item-action">
           <div class="w-100 justify-content-start align-items-center">
@@ -27,6 +27,7 @@
           </div>
         </a>
       </li>
+      <a class="sidebar-separator-title" style="margin-top:-40px;"></a>
       <li>
         <a class="bg-dark list-group-item list-group-item-action">
           <div class="w-100 justify-content-start align-items-center">
