@@ -2,8 +2,8 @@
 
 @section('content')
   <div class="container fc-white">
-    <h1 class="title">Manage Roles</h1>
-    <a href="{{route('roles.create')}}" class="btn btn-secondary justify-content-end my-3"><i class="fa fa-user-plus me-1"></i> Create New Role</a>
+    <h1>Manage Roles</h1>
+    <a href="{{route('roles.create')}}" class="btn btn-secondarymy-3"><i class="fa fa-user-plus me-1"></i> Create New Role</a>
     <hr class="mt-0">
 
     <div class="row">
