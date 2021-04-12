@@ -23,6 +23,8 @@ Route::prefix('manage')->middleware('role:administrator')->group(function () {
     Route::get('/', 'App\Http\Controllers\ManageController@index');
     Route::get('/dashboard', 'App\Http\Controllers\ManageController@dashboard')->name('manage.dashboard');
     Route::resource('/users', 'App\Http\Controllers\UserController');
+    Route::resource('/permissions', 'App\Http\Controllers\PermissionController', ['except' => 'destroy']);
+    Route::resource('/roles', 'App\Http\Controllers\RoleController', ['except' => 'destroy']);
 });
 
 // Route::get('dashboard', 'App\Http\Controllers\UserController@dashboard')->middleware('auth');

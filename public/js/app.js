@@ -50,3 +50,15 @@ radio.on('click', function() {
         inputActive.find('input').attr('required', false);
     }
 })
+
+// Hide or show crud permission option
+function text(x) {
+    if (x == 0) {
+        document.getElementById("basicPer").style.display = "block";
+        document.getElementById("crudPer").style.display = "none";
+    }
+    if (x == 1) {
+        document.getElementById("crudPer").style.display = "block";
+        document.getElementById("basicPer").style.display = "none";
+    }
+}
