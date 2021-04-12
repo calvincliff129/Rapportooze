@@ -62,3 +62,11 @@ function text(x) {
         document.getElementById("basicPer").style.display = "none";
     }
 }
+
+// Hide or show manual password option in create user option
+function passUser(x) {
+    if (x == 0)
+        document.getElementById("passUserInput").style.display = "block";
+    else
+        document.getElementById("passUserInput").style.display = "none";
+}

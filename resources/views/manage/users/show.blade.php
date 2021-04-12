@@ -2,15 +2,8 @@
 
 @section('content')
   <div class="container fc-white">
-    <div class="">
-      <div class="">
-        <h1 class="title">View User Details</h1>
-      </div> <!-- end of column -->
-
-      <div class="col">
-        <a href="{{route('users.edit', $user->id)}}" class="btn btn-secondary justify-content-end my-3"><i class="fa fa-user me-1"></i> Edit User</a>
-      </div>
-    </div>
+    <h1>View User Details</h1>
+    <a href="{{route('users.edit', $user->id)}}" class="btn btn-secondary my-3"><i class="fa fa-user me-1"></i> Edit User</a>
     <hr class="mt-0">
 
     <div class="card text-white bg-dark">

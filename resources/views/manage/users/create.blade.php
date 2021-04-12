@@ -2,56 +2,49 @@
 
 @section('content')
   <div class="container fc-white">
-    <div class="">
-      <div class="">
-        <h1 class="title">Create New User</h1>
-      </div>
-    </div>
-    <hr class="m-t-0">
+    <h1 class="title">Create New User</h1>
+    <hr class="mt-0">
+
     <form action="{{route('users.store')}}" method="POST">
       {{csrf_field()}}
-      <div class="card text-white bg-dark">
+      <div class="card text-white bg-dark mb-3">
         <div class="card-body">
-          <div class="field">
-            <label for="name" class="label">Name</label>
-            <p class="control">
-              <input type="text" class="input" name="name" id="name">
-            </p>
+          <div class="my-3">
+            <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" name="name" id="name">
           </div>
 
-          <div class="field">
-            <label for="email" class="label">Email:</label>
-            <p class="control">
-              <input type="text" class="input" name="email" id="email">
-            </p>
+          <div class="my-3">
+            <label for="email" class="form-label">Email:</label>
+              <input type="text" class="form-control" name="email" id="email">
           </div>
 
-          <div class="field">
-            <label for="password" class="label">Password</label>
-            <p class="control">
-              <input type="text" class="input" name="password" id="password" v-if="!auto_password" placeholder="Manually give a password to this user">
-              <b-checkbox name="auto_generate" class="m-t-15" v-model="auto_password">Auto Generate Password</b-checkbox>
-            </p>
-          </div>
-        </div> <!-- end of .column -->
-
-        <div class="col">
-          <label for="roles" class="label">Roles:</label>
-          <input type="hidden" name="roles" :value="rolesSelected" />
-
-            @foreach ($roles as $role)
-              <div class="field">
-                <b-checkbox v-model="rolesSelected" :native-value="{{$role->id}}">{{$role->display_name}}</b-checkbox>
+          <div class="my-3">
+            <label for="password" class="form-label">Password</label>
+              <div class="collapse" id="passUserInput">
+                <input type="text" class="form-control" name="password" id="password" v-if="!auto_password" placeholder="Manually give a password to this user">
               </div>
-            @endforeach
-        </div>
+              <div class="form-check my-2 col-sm-3">
+                <input class="form-check-input" type="checkbox" v-model="auto_password" name="auto_generate" onclick="passUser(0)" checked>
+                <label class="form-check-label" for="auto_generate">
+                  Auto Generate Password
+                </label>
+              </div>
+          </div>
+
+          <label for="roles" class="form-label">Roles:</label>
+          <input type="hidden" name="roles" :value="rolesSelected" />
+          @foreach ($roles as $role)
+            <div class="form-check mb-2 col-sm-3">
+              <input class="form-check-input" type="checkbox" v-model="rolesSelected" :native-value="{{$role->id}}" id="rolesChoice">
+              <label class="form-check-label" for="rolesChoice">
+                {{$role->display_name}}
+              </label>
+            </div>
+          @endforeach
+        </div> <!-- end of .column -->
       </div> <!-- end of .columns for forms -->
-      <div class="col">
-        <div class="col">
-          <hr />
-          <button class="btn-custom mx-auto" style="width: 250px;">Create New User</button>
-        </div>
-      </div>
+      <button class="btn btn-secondary">Create New User</button>
     </form>
   </div> <!-- end of .flex-container -->
 @endsection
