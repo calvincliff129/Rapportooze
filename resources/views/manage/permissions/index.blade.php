@@ -29,5 +29,7 @@
         </tbody>
       </table>
     </div>
+
+    {{$permissions->links('vendor.pagination.bootstrap-4')}}
   </div>
 @endsection
