@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-
 Auth::routes();
 
 Route::prefix('manage')->middleware('role:administrator')->group(function () {
@@ -26,7 +22,6 @@ Route::prefix('manage')->middleware('role:administrator')->group(function () {
     Route::resource('/permissions', 'App\Http\Controllers\PermissionController', ['except' => 'destroy']);
     Route::resource('/roles', 'App\Http\Controllers\RoleController', ['except' => 'destroy']);
 });
-
 
 // dashboard
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
