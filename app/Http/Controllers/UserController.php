@@ -2,27 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Role;
 use DB;
 use Session;
-use Hash;
 use Input;
 
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the users
      *
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\User  $model
+     * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(User $model)
     {
         $users = User::orderBy('id', 'asc')->paginate(10);
         return view('manage.users.index')->withUsers($users);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *

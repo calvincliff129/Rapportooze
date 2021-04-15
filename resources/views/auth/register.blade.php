@@ -1,65 +1,69 @@
-@extends('layouts.app')
+@extends('layouts.app', ['class' => 'register-page', 'page' => __('Register Page'), 'contentClass' => 'register-page'])
 
 @section('content')
-<div class="container-custom">
-    <div class="card-custom">
-        <div class="row justify-content-center">
-            <div class="ctn-custom">
-                <h2 class="fc-white mb-5 text-center">Register</h2>
+    <div class="col-md-7 mx-auto">
+        <div class="card-custom card-register fc-white">
+            <div class="justify-content-center">
+                
 
-                <form method="POST" action="{{ route('register') }}">
+                <form class="form" method="POST" action="{{ route('register') }}">
                     @csrf
 
-                    <div class="form-group mb-4">
-                        <i class="fas fa-user"></i>
-                        <input id="name" type="text" class="Input-custom w-custom @error('name') is-invalid @enderror" placeholder="Name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                        @error('name')
-                            <span class="invalid-feedback text-center" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <i class="fas fa-envelope"></i>
-                        <input id="email" type="email" class="Input-custom w-custom @error('email') is-invalid @enderror" placeholder="Email address" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                        @error('email')
-                            <span class="invalid-feedback text-center" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-
-                    <div class="col-sm mb-5 me-4">
-                        <i class="fas fa-key"></i>
-                        <input id="password" type="password" class="Input-custom w-10 @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="new-password">
-                        
-                        <i class="fas fa-lock"></i>
-                        <input id="password-confirm" type="password" class="Input-custom w-10" placeholder="Confirm password" name="password_confirmation" required autocomplete="new-password">
-                    
-                        @error('password')
-                            <span class="invalid-feedback text-center" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                    <div class="card-body">
+                        <h2 class="card-title mb-5 text-center">Register</h2>
+                        <div class="input-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="tim-icons icon-single-02"></i>
+                                </div>
+                            </div>
+                            <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}">
+                            @include('alerts.feedback', ['field' => 'name'])
+                        </div>
+                        <div class="input-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="tim-icons icon-email-85"></i>
+                                </div>
+                            </div>
+                            <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}">
+                            @include('alerts.feedback', ['field' => 'email'])
                         </div>
 
-                    <div class="form-group mb-4 row justify-content-center">
-                        <button type="submit" class="btn-custom mx-auto py-custom">
-                            {{ __('REGISTER') }}
-                        </button>
-                    </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 input-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="tim-icons icon-lock-circle"></i>
+                                    </div>
+                                </div>
+                                <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="{{ __('Password') }}">
+                                @include('alerts.feedback', ['field' => 'password'])
+                            </div>
+                            <div class="form-group col-md-6 input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="tim-icons icon-lock-circle"></i>
+                                    </div>
+                                </div>
+                                <input type="password" name="password_confirmation" class="form-control" placeholder="{{ __('Confirm Password') }}">
+                            </div>
+                        </div>
 
-                    <div class="fs-small fw-lighter text-center">
-                        <a class="link-warning" href="{{ route('login') }}">
-                            {{ __('Already have an account?') }}
-                        </a>
+                        <div class="form-group my-4 row justify-content-center">
+                            <button type="submit" class="btn btn-primary btn-round">
+                                {{ __('REGISTER') }}
+                            </button>
+                        </div>
+
+                        <div class="fs-small fw-lighter text-center">
+                            <a class="link-warning" href="{{ route('login') }}">
+                                {{ __('Already have an account?') }}
+                            </a>
+                        </div>
                     </div>
                 </form>
             </div> 
-        </div> 
+        </div>
     </div>
-</div>
 @endsection

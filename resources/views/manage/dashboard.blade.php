@@ -1,4 +1,4 @@
-@extends('layouts.manage')
+@extends('layouts.app', ['pageSlug' => 'dashboard'])
 
 @section('content')
 <div class="container">
@@ -7,8 +7,8 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <div class="card">
-                            <div class="card-header">{{ __('Admin dashboard') }}</div>
+                        <div class="card text-center">
+                            <div class="card-header">{{ __('Administration') }}</div>
 
                             <div class="card-body">
                                 @if (session('status'))
@@ -17,7 +17,7 @@
                                     </div>
                                 @endif
 
-                                {{ __('This is the admin dashboard!') }}
+                                {{ __('You\'re now inside the admin access page!') }}
                             </div>
                         </div>
                     @else

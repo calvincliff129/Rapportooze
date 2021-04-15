@@ -1,35 +1,53 @@
-@extends('layouts.manage')
+@extends('layouts.app', ['page' => __('Permissions'), 'pageSlug' => 'permissions'])
 
 @section('content')
-  <div class="container fc-white">
-    <h1>Manage Permissions</h1>
-    <a href="{{route('permissions.create')}}" class="btn btn-secondary my-3"><i class="fa fa-user-plus me-1"></i> Create New Permission</a>
-    <hr class="mt-0">
-
-    <div class="table-responsive">
-      <table class="table table-dark table-sm table-bordered table-hover table-striped text-center">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Slug</th>
-            <th>Description</th>
-            <th>Update</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          @foreach ($permissions as $permission)
-            <tr>
-              <th>{{$permission->display_name}}</th>
-              <td>{{$permission->name}}</td>
-              <td>{{$permission->description}}</td>
-              <td class="has-text-right"><a class="btn btn-secondary me-4" href="{{route('permissions.show', $permission->id)}}">View</a><a class="btn btn-light" href="{{route('permissions.edit', $permission->id)}}">Edit</a></td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-8">
+                    <h4 class="card-title">Manage Permissions</h4>
+                </div>
+                <div class="col-4 d-flex justify-content-end">
+                    <a href="{{route('permissions.create')}}" class="btn btn-sm btn-primary">Create Permission</a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="">
+                <table class="table tablesorter " id="">
+                    <thead class=" text-primary">
+                        <tr><th scope="col">Name</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Update</th>
+                    </tr></thead>
+                    <tbody>
+                      @foreach ($permissions as $permission)
+                        <tr>
+                          <th>{{$permission->display_name}}</th>
+                          <td>{{$permission->name}}</td>
+                          <td>{{$permission->description}}</td>
+                          <td>
+                            <div class="dropdown">
+                              <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v"></i>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-arrow">
+                                <a class="dropdown-item" href="{{route('permissions.show', $permission->id)}}">Detail</a>
+                                <a class="dropdown-item" href="{{route('permissions.edit', $permission->id)}}">Edit</a>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
+      {{$permissions->links('vendor.pagination.bootstrap-4')}}
     </div>
-
-    {{$permissions->links('vendor.pagination.bootstrap-4')}}
   </div>
 @endsection

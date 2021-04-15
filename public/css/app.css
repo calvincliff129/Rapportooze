@@ -49,12 +49,9 @@ button:focus
 }
 
 .card-custom {
-  position: relative;
-  height: 100%;
   border-radius: 1%;
   background: rgba(24, 24, 16, .2);
   backdrop-filter: blur(40px);
-  padding: 30px 60px;
   -webkit-box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 26px 11px rgba(0,0,0,0.75);

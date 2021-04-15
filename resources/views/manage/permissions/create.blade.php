@@ -1,85 +1,90 @@
-@extends('layouts.manage')
+@extends('layouts.app', ['page' => __('Permissions'), 'pageSlug' => 'permissions'])
 
 @section('content')
-  <div class="container fc-white">
-    <h1>Create New Permission</h1>
-    <hr class="m-t-0">
+  <h3>Create New Permission</h3>
+  <hr class="m-t-0">
 
-      <form action="{{route('permissions.store')}}" method="POST">
-        {{csrf_field()}}
-        <div class="card text-white bg-dark mb-3">
-          <div class="card-body">
-            <div class="my-3">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="permission_type" id="permissionType" native-value="basic" onclick="text(0)" checked>
-                <label class="form-check-label" for="permissionType">
-                  Basic Permission
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="permission_type" id="permissionType" native-value="crud" onclick="text(1)">
-                <label class="form-check-label" for="permissionType">
-                  CRUD Permission
-                </label>
-              </div>
+    <form action="{{route('permissions.store')}}" method="POST">
+      {{csrf_field()}}
+      <div class="card">
+        <div class="card-body">
+          <div class="my-3">
+
+            <div class="form-check form-check-radio form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="permission_type" id="permission_type" value="basic" onclick="text(0)" checked>
+                Basic Permission
+                <span class="form-check-sign"></span>
+              </label>
             </div>
-            
-            <!-- For basic option -->
-            <div id="basicPer">
-              <div class="mb-3" v-if="permissionType == 'basic'">
-                <label for="display_name" class="form-label">Name (Display Name)</label>
-                <input type="text" class="form-control" name="display_name" id="display_name">
-              </div>
-
-              <div class="mb-3" v-if="permissionType == 'basic'">
-                <label for="name" class="form-label">Slug</label>
-                <input type="text" class="form-control" name="name" id="name">
-              </div>
-
-              <div class="mb-3" v-if="permissionType == 'basic'">
-                <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" name="description" id="description" placeholder="Describe what this permission does">
-              </div>
+            <div class="form-check form-check-radio form-check-inline">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="permission_type" id="permission_type" value="crud" onclick="text(1)">
+                CRUD Permission
+                <span class="form-check-sign"></span>
+              </label>
             </div>
-            
+          </div>
+          
+          <!-- For basic option -->
+          <div id="basicPer">
+            <div class="mb-3" v-if="permissionType == 'basic'">
+              <label for="display_name" class="form-label">Name (Display Name)</label>
+              <input type="text" class="form-control" name="display_name" id="display_name">
+            </div>
 
-            <!-- For crud option -->
-            <div class="collapse" id="crudPer">
-              <div class="mb-3" v-if="permissionType == 'crud'">
-                <label for="resource" class="form-label">Resource</label>
-                <input type="text" class="form-control" name="resource" id="resource" v-model="resource" placeholder="The name of the resource">
-              </div>
+            <div class="mb-3" v-if="permissionType == 'basic'">
+              <label for="name" class="form-label">Slug</label>
+              <input type="text" class="form-control" name="name" id="name">
+            </div>
 
-              <div class="columns" v-if="permissionType == 'crud'">
-                <div class="column is-one-quarter">
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" v-model="crudSelected" :native-value="create" id="crudSelected">
-                      <label class="form-check-label" for="crudSelected">
-                        Create
-                      </label>
-                    </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" v-model="crudSelected" :native-value="read" id="crudSelected">
-                      <label class="form-check-label" for="crudSelected">
-                        Read
-                      </label>
-                    </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" v-model="crudSelected" :native-value="update" id="crudSelected">
-                      <label class="form-check-label" for="crudSelected">
-                        Update
-                      </label>
-                    </div>
-                    <div class="form-check mb-2">
-                      <input class="form-check-input" type="checkbox" v-model="crudSelected" :native-value="delete" id="crudSelected">
-                      <label class="form-check-label" for="crudSelected">
-                        Delete
-                      </label>
-                    </div>
+            <div class="mb-3" v-if="permissionType == 'basic'">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" class="form-control" name="description" id="description" placeholder="Describe what this permission does">
+            </div>
+          </div>
+          
+
+          <!-- For crud option -->
+          <div class="collapse" id="crudPer">
+            <div class="mb-3" v-if="permissionType == 'crud'">
+              <label for="resource" class="form-label">Resource</label>
+              <input type="text" class="form-control" name="resource" id="resource" v-model="resource" placeholder="The name of the resource">
+            </div>
+            <div class="row">
+              <div class="col-sm-6" v-if="permissionType == 'crud'">
+                <div class="form-check form-check-radio">
+                    <label class="form-check-label mb-2">
+                      <input class="form-check-input" type="radio" name="crudSelected" id="crudSelected" value="create" >
+                      Create
+                      <span class="form-check-sign"></span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label mb-2">
+                      <input class="form-check-input" type="radio" name="crudSelected" id="crudSelected" value="read" checked>
+                      Read
+                      <span class="form-check-sign"></span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label mb-2">
+                      <input class="form-check-input" type="radio" name="crudSelected" id="crudSelected" value="update" checked>
+                      Update
+                      <span class="form-check-sign"></span>
+                    </label>
+                  </div>
+                  <div class="form-check form-check-radio">
+                    <label class="form-check-label mb-2">
+                      <input class="form-check-input" type="radio" name="crudSelected" id="crudSelected" value="delete" checked>
+                      Delete
+                      <span class="form-check-sign"></span>
+                    </label>
+                  </div>
                 </div>
                 <input type="hidden" name="crud_selected" :value="crudSelected">
 
-                <div class="column">
+                <div class="col-sm-4">
                   <table class="table" v-if="resource.length >= 3 && crudSelected.length > 0">
                     <thead>
                       <th>Name</th>
@@ -97,13 +102,11 @@
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
-
-        <button class="btn btn-secondary">Create Permission</button>
-      </form>
-  </div>
+      </div>
+      <button class="btn btn-secondary">Create Permission</button>
+    </form>
 @endsection
 
 @section('scripts')
