@@ -12,14 +12,14 @@
 
             <div class="form-check form-check-radio form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="permission_type" id="permission_type" value="basic" onclick="text(0)" checked>
+                <input class="form-check-input" type="radio" name="permission_type" id="permission_type" value="basic" onclick="createPer(0)" checked>
                 Basic Permission
                 <span class="form-check-sign"></span>
               </label>
             </div>
             <div class="form-check form-check-radio form-check-inline">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="permission_type" id="permission_type" value="crud" onclick="text(1)">
+                <input class="form-check-input" type="radio" name="permission_type" id="permission_type" value="crud" onclick="createPer(1)">
                 CRUD Permission
                 <span class="form-check-sign"></span>
               </label>

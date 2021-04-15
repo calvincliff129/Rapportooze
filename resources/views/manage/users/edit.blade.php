@@ -24,28 +24,28 @@
                     <!-- <b-radio-group v-model="password_options"> -->
                     <div class="form-check form-check-radio">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="password_options" id="password_options" value="keep" checked>
+                            <input class="form-check-input" type="radio" name="password_options" id="password_options" value="keep" onclick="manualPassInput(0)" checked>
                             Do Not Change Password
                             <span class="form-check-sign"></span>
                         </label>
                     </div>
                     <div class="form-check form-check-radio">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="password_options" id="password_options" value="auto">
+                            <input class="form-check-input" type="radio" name="password_options" id="password_options" value="auto" onclick="manualPassInput(0)">
                             Auto-Generate New Password
                             <span class="form-check-sign"></span>
                         </label>
                     </div>
                     <div class="form-check form-check-radio">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="password_options" id="manualPass" value="manual">
+                            <input class="form-check-input" type="radio" name="password_options" id="manualPass" value="manualPass" onclick="manualPassInput(1)">
                             Manually Set New Password
                             <span class="form-check-sign"></span>
                         </label>
                         <div class="collapse mt-2 mx-4" id="manualPassInput">
                             <div class="form-group">
                                 <p style="width:250px;">
-                                    <input type="text" class="form-control" name="password" id="password" if="password_options == 'manual'" placeholder="Manual password">
+                                    <input type="text" class="form-control" name="password" id="password" placeholder="Manual password">
                                 </p>
                             </div>
                         </div>

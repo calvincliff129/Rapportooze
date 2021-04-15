@@ -20,13 +20,13 @@
 
         <div class="my-3">
           <label for="password" class="form-label">Password</label>
-            <div class="collapse" id="passUserInput">
-              <input type="text" class="form-control" name="password" id="password" v-if="!auto_password" placeholder="Manually give a password to this user">
+            <div class="manualPass collapse" id="passUserInput">
+              <input type="text" class="form-control" name="password" id="password" placeholder="Manually give a password to this user">
             </div>
 
             <div class="form-check mb-2 col-sm-3">
               <label class="form-check-label">
-                <input class="form-check-input" name="auto_generate" type="checkbox" value="" checked>
+                <input class="form-check-input" name="auto_generate" id="auto_password" type="checkbox" value="autoPass" checked>
                 <span class="form-check-sign">
                   <span class="check"></span>
                 </span>

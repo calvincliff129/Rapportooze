@@ -35,24 +35,24 @@ function SidebarCollapse () {
 }
 
 // Admin manual password
-var form = $('#editUserForm'),
-radio = $('#manualPass'),
-inputActive = $('#manualPassInput');
+// var form = $('#editUserForm'),
+// radio = $('#manualPass'),
+// inputActive = $('#manualPassInput');
 
-inputActive.hide();
+// inputActive.hide();
 
-radio.on('click', function() {
-    if($(this).is(':checked')) {
-        inputActive.show();
-        inputActive.find('input').attr('required', true);
-    } else {
-        inputActive.hide();
-        inputActive.find('input').attr('required', false);
-    }
-})
+// radio.on('click', function() {
+//     if($(this).is(':checked')) {
+//         inputActive.show();
+//         inputActive.find('input').attr('required', true);
+//     } else {
+//         inputActive.hide();
+//         inputActive.find('input').attr('required', false);
+//     }
+// })
 
 // Hide or show crud permission option
-function text(x) {
+function createPer(x) {
     if (x == 0) {
         document.getElementById("basicPer").style.display = "block";
         document.getElementById("crudPer").style.display = "none";
@@ -64,9 +64,20 @@ function text(x) {
 }
 
 // Hide or show manual password option in create user option
-function passUser(x) {
-    if (x == 0)
-        document.getElementById("passUserInput").style.display = "block";
-    else
-        document.getElementById("passUserInput").style.display = "none";
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+        if($(this).attr("value")=="autoPass"){
+            $(".manualPass").toggle();
+        }
+    });
+});
+
+// Hide or show manual password option in edit user option
+function manualPassInput(x) {
+    if (x == 0) {
+        document.getElementById("manualPassInput").style.display = "none";
+    }
+    if (x == 1) {
+        document.getElementById("manualPassInput").style.display = "block";
+    }
 }
