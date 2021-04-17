@@ -34,7 +34,7 @@
             </div>
 
             <div class="mb-3" v-if="permissionType == 'basic'">
-              <label for="name" class="form-label">Slug</label>
+              <label for="name" class="form-label">Name/Code</label>
               <input type="text" class="form-control" name="name" id="name">
             </div>
 

@@ -30,10 +30,11 @@
     <div class="card">
       <div class="card-body">
         <h2 class="card-title mb-3">Permissions:</h2>
+
         @foreach ($permissions as $permission)
           <div class="form-check mb-2 col-sm-3">
             <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" value="{{$permission->id}}">
+              <input class="form-check-input" type="checkbox" v-model="permissionsSelected" value="{{$permission->id}}" @if (count($role->permissions->where('id', $permission->id))) checked @endif>
               <span class="form-check-sign">
                 <span class="check"></span>
               </span>
@@ -41,20 +42,21 @@
             </label>
           </div>
         @endforeach
+
       </div>
     </div>
     <button class="btn btn-default">Save Changes to Role</button>
   </form>
 @endsection
 
-
 @section('scripts')
   <script>
+
   var app = new Vue({
-    el: '#app',
     data: {
       permissionsSelected: {!!$role->permissions->pluck('id')!!}
     }
   });
+
   </script>
 @endsection

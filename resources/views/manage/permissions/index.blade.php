@@ -19,7 +19,7 @@
                 <table class="table tablesorter " id="">
                     <thead class=" text-primary">
                         <tr><th scope="col">Name</th>
-                        <th scope="col">Slug</th>
+                        <th scope="col">Name/Code</th>
                         <th scope="col">Description</th>
                         <th scope="col">Update</th>
                     </tr></thead>

@@ -16,7 +16,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="name" class="form-label">Slug <small>(Cannot be changed)</small></label>
+          <label for="name" class="form-label">Name/Code <small>(Cannot be changed)</small></label>
           <input type="text" class="form-control" name="name" id="name" value="{{$permission->name}}" disabled>
         </div>
 
