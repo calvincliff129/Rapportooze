@@ -4,7 +4,7 @@
             <a href="#" class="simple-text logo-normal text-center">{{ $page ?? __('User') }}</a>
         </div>
         <ul class="nav">
-            <li>
+            <li @if ($pageSlug == 'dashboard') class="active " @endif>
                 <a href="{{ route('home') }}">
                     <i class="fas fa-columns"></i>
                     <p>{{ _('Dashboard') }}</p>
@@ -19,26 +19,26 @@
 
                 <div class="collapse show" id="laravel-examples">
                     <ul class="nav pl-4">
-                        <li >
-                            <a href="#">
+                        <li @if ($pageSlug == 'contact') class="active " @endif>
+                            <a href="{{ route('contact.index') }}">
                                 <i class="far fa-user-circle"></i>
                                 <p>{{ _('Contact') }}</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li @if ($pageSlug == 'reminder') class="active " @endif>
+                            <a href="{{ route('reminder.index') }}">
                                 <i class="far fa-clock"></i>
                                 <p>{{ _('Reminder') }}</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li @if ($pageSlug == 'activity') class="active " @endif>
+                            <a href="{{ route('activity.index') }}">
                                 <i class="far fa-calendar-check"></i>
                                 <p>{{ _('Activity') }}</p>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li @if ($pageSlug == 'timeline') class="active " @endif>
+                            <a href="{{ route('timeline.index') }}">
                                 <i class="fas fa-heartbeat"></i>
                                 <p>{{ _('Timeline') }}</p>
                             </a>
@@ -46,7 +46,7 @@
                     </ul>
                 </div>
             </li>
-            <li>
+            <li @if ($pageSlug == 'profile') class="active " @endif>
                 <a href="{{ route('profile.edit') }}">
                     <i class="far fa-user"></i>
                     <p>{{ _('User Profile') }}</p>

@@ -75,7 +75,7 @@
                             <div class="block block-three"></div>
                             <div class="block block-four"></div>
                             <a href="#">
-                                <img class="avatar" src="{{ asset('black') }}/img/james.jpg" alt="">
+                                <img class="avatar" src="{{ asset('black') }}/img/anime3.png" alt="">
                                 <h5 class="title">{{ auth()->user()->name }}</h5>
                             </a>
                             <p class="description">
@@ -83,7 +83,7 @@
                             </p>
                         </div>
                     </p>
-                    <div class="card-description">
+                    <div class="card-description text-center">
                         {{ __('Just doin somethin...') }}
                     </div>
                 </div>

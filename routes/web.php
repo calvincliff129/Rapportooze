@@ -35,12 +35,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 
     // Contact Management pages routes
-    Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
-    Route::get('/reminder', [App\Http\Controllers\ReminderController::class, 'index'])->name('reminder');
-    Route::get('/activity', [App\Http\Controllers\ActivityController::class, 'index'])->name('activity');
-    Route::get('/gift', [App\Http\Controllers\GiftController::class, 'index'])->name('gift');
-    Route::get('/debt', [App\Http\Controllers\DebtController::class, 'index'])->name('debt');
-    Route::get('/life-event', [App\Http\Controllers\LifeEventController::class, 'index'])->name('life-event');
-    Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index'])->name('timeline');
+    Route::resource('/contact', 'App\Http\Controllers\ContactController');
+    Route::resource('/reminder', 'App\Http\Controllers\ReminderController');
+    Route::resource('/activity', 'App\Http\Controllers\ActivityController');
+    Route::resource('/gift', 'App\Http\Controllers\GiftController');
+    Route::resource('/debt', 'App\Http\Controllers\DebtController');
+    Route::resource('/life-event', 'App\Http\Controllers\LifeEventController');
+    Route::resource('/timeline', 'App\Http\Controllers\TimelineController');
 });
 

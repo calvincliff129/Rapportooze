@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.user', ['page' => __('Contact'), 'pageSlug' => 'contact'])
 
 @section('content')
 <div class="container">

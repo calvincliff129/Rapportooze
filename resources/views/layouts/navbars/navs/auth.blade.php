@@ -69,6 +69,9 @@
                     </a>
                     <ul class="dropdown-menu dropdown-navbar">
                         <li class="nav-link">
+                            <a href="{{ route('home') }}" class="nav-item dropdown-item">{{ __('Dashboard') }}</a>
+                        </li>
+                        <li class="nav-link">
                             <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Profile') }}</a>
                         </li>
                         <li class="nav-link">
