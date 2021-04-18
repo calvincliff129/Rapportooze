@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/roles', 'App\Http\Controllers\RoleController', ['except' => 'destroy']);
     });
 
-    // User routes
+    // User profile routes
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
