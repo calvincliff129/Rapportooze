@@ -29,7 +29,15 @@
                             <input type="password" placeholder="{{ __('Password') }}" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
                             @include('alerts.feedback', ['field' => 'password'])
                         </div>
-                    
+                        <div class="form-check mb-3 text-center">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember">
+                            <span class="form-check-sign">
+                                <span class="check"></span>
+                            </span>
+                            Remember Me
+                            </label>
+                        </div>
                     
                         <div class="form-group my-4 row justify-content-center">
                             <button type="submit" href="" class="btn btn-primary btn-round">{{ __('LOG IN') }}</button>

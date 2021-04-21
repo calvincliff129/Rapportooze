@@ -17,7 +17,33 @@
                                     </div>
                                 @endif
 
-                                {{ __('You are logged in!') }}
+                                <table class="table tablesorter " id="">
+                                    <thead class=" text-primary">
+                                        <tr><th scope="col"></th>
+                                        <th scope="col">Contact Name</th>
+                                        <th scope="col">Info</th>
+                                    </tr></thead>
+                                    <tbody>
+                                        <tr>
+                                        <th></th>
+                                        <td></td>
+                                        <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Country:</strong>
+                                        <select name="country" id="country" class="form-control mb-1">
+                                            <option value="">Select Country</option>
+                                            @foreach ($countries as $country)
+                                                <option value="{{ $country }}">{{ $country }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     @else

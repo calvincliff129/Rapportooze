@@ -58,7 +58,7 @@
                 @foreach ($roles as $role)
                 <div class="form-check mb-2 col-sm-3">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" name="role_id[]" value="{{$role->id}}" @if (count($user->roles->where('id', $role->id))) checked @endif>
+                    <input class="form-check-input" type="checkbox" name="roles[]" value="{{$role->id}}" @if (count($user->roles->where('id', $role->id))) checked @endif>
                     <span class="form-check-sign">
                         <span class="check"></span>
                     </span>

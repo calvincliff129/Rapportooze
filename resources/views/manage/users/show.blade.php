@@ -19,12 +19,14 @@
         </div>
 
         <div class="mb-3">
-          <label for="email" class="form-label">Roles:</label>
+          <label for="roles" class="form-label">Roles:</label>
+          <ul>
             @forelse ($user->roles as $role)
-              <input type="text" class="form-control w-25" placeholder="{{$role->display_name}} ({{$role->description}})">
+              <li class="text-muted">{{$role->display_name}} ({{$role->description}})</li>
             @empty
               <p>No role has been assigned to this user yet</p>
             @endforelse
+          </ul>
         </div>
       </fieldset>
     </div>

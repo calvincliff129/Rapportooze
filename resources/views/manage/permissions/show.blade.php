@@ -7,10 +7,13 @@
 
     <div class="card">
       <div class="card-body">
+        <p class="mb-4">
+          <strong>Permission Name : </strong>
+          <br>{{$permission->display_name}} <em>({{$permission->name}})</em>
+        </p>
         <p>
-          <strong>{{$permission->display_name}}</strong> <em>({{$permission->name}})</em>
-          <br>
-          {{$permission->description}}
+          <strong>Description : </strong>
+          <br>{{$permission->description}}
         </p>
       </div>
     </div>

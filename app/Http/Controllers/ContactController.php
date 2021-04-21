@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Monarobase\CountryList\CountryListFacade;
 use Illuminate\Http\Request;
 use Session;
 
@@ -14,7 +15,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('user.contact.index');
+        $countries = CountryListFacade::getList('en');
+        return view('user.contact.index', compact('countries'));
     }
 
     /**

@@ -33,13 +33,6 @@
                 Auto Generate Password
               </label>
             </div>
-
-            <!-- <div class="form-check my-2 col-sm-3">
-              <input class="form-check-input" type="checkbox" v-model="auto_password" name="auto_generate" onclick="passUser(0)" checked>
-              <label class="form-check-label" for="auto_generate">
-                Auto Generate Password
-              </label>
-            </div> -->
         </div>
 
         <label for="roles" class="form-label">Roles:</label>
@@ -47,7 +40,7 @@
         @foreach ($roles as $role)
           <div class="form-check mb-2 col-sm-3">
             <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" value="{{$role->id}}">
+              <input class="form-check-input" type="checkbox" name="roles[]" value="{{$role->id}}">
               <span class="form-check-sign">
                 <span class="check"></span>
               </span>
@@ -66,16 +59,4 @@
     </div> <!-- end of .columns for forms -->
     <button class="btn btn-secondary">Create New User</button>
   </form>
-@endsection
-
-@section('scripts')
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        auto_password: true,
-        rolesSelected: [{!! old('roles') ? old('roles') : '' !!}]
-      }
-    });
-  </script>
 @endsection

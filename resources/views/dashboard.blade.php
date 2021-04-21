@@ -7,7 +7,7 @@
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-sm-6 text-left">
-                            <h5 class="card-category">Total Shipments</h5>
+                            <h5 class="card-category">Statistics</h5>
                             <h2 class="card-title">Performance</h2>
                         </div>
                         <div class="col-sm-6">
@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-lg-4">
             <div class="card card-chart">
                 <div class="card-header">
@@ -85,12 +85,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-lg-6 col-md-12">
             <div class="card card-tasks">
                 <div class="card-header ">
-                    <h6 class="title d-inline">Tasks(5)</h6>
+                    <h6 class="title d-inline">Upcoming reminder(5)</h6>
                     <p class="card-category d-inline">today</p>
                     <div class="dropdown">
                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
@@ -118,10 +118,10 @@
                                             </label>
                                         </div>
                                     </td>
-                                    <td>
+                                    <!-- <td>
                                         <p class="title">Update the Documentation</p>
                                         <p class="text-muted">Dwuamish Head, Seattle, WA 8:47 AM</p>
-                                    </td>
+                                    </td> -->
                                     <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
                                             <i class="tim-icons icon-pencil"></i>
