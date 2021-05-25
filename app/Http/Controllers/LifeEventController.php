@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Carbon\Carbon;
+use App\Models\Contact;
+use App\Models\LifeEvent;
 use Illuminate\Http\Request;
 
 class LifeEventController extends Controller
@@ -19,22 +23,45 @@ class LifeEventController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Contact $contact
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Contact $contact)
     {
-        //
+        $userId = Auth::user()->id;
+        $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
+
+        return view('user.life_event.create')
+            ->withContact($contact)
+            ->withContacts($contacts);
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param Contact $contact
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Contact $contact)
     {
-        //
+        $this->validateWith([
+            'name' => 'required|string|max:255',
+            'note' => 'nullable|max:255',
+            'happened_at' => 'required|date',
+        ]);
+
+        $userId = Auth::user()->id;
+        $lifeEvent = new LifeEvent();
+        $lifeEvent->user_id = $userId;
+        $lifeEvent->contact_id = $contact->id;
+        $lifeEvent->name = $request->name;
+        $lifeEvent->note = $request->note;
+        $hp_at = Carbon::parse($request->happened_at);
+        $lifeEvent->happened_at = $hp_at;
+        $lifeEvent->save();
+
+        return redirect()->route('contact.show', $contact->id);
     }
 
     /**
@@ -51,34 +78,57 @@ class LifeEventController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Contact $contact
+     * @param LifeEvent $lifeEvent
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact, LifeEvent $lifeEvent)
     {
-        //
+        return view('user.life_event.edit')
+            ->withContact($contact)
+            ->withLifeEvent($lifeEvent);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param Contact $contact
+     * @param LifeEvent $lifeEvent
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contact $contact, LifeEvent $lifeEvent)
     {
-        //
+        $this->validateWith([
+            'name' => 'required|string|max:255',
+            'note' => 'nullable|max:255',
+            'happened_at' => 'required|date',
+        ]);
+
+        $userId = Auth::user()->id;
+        $lifeEvent = LifeEvent::where('id', $lifeEvent->id)->where('contact_id', $contact->id)->findOrFail($lifeEvent->id);
+        $lifeEvent->user_id = $userId;
+        $lifeEvent->contact_id = $contact->id;
+        $lifeEvent->name = $request->name;
+        $lifeEvent->note = $request->note;
+        $hp_at = Carbon::parse($request->happened_at);
+        $lifeEvent->happened_at = $hp_at;
+        $lifeEvent->save();
+
+        return redirect()->route('contact.show', $contact->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Contact $contact
+     * @param LifeEvent $lifeEvent
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Contact $contact, LifeEvent $lifeEvent)
     {
-        //
+        LifeEvent::where('id', $lifeEvent->id)->where('contact_id', $contact->id)->delete();
+
+        return redirect()->route('contact.show', $contact);
     }
 }

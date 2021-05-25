@@ -28,19 +28,29 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/roles', 'App\Http\Controllers\RoleController', ['except' => 'destroy']);
     });
 
-    // User profile routes
+    
+});
+
+// User profile routes
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
+    Route::get('profile/avatar', ['as' => 'user_avatar.select', 'uses' => 'App\Http\Controllers\ProfileController@chooseAvatar']);
+    Route::post('profile/avatar', ['as' => 'user_avatar.update', 'uses' => 'App\Http\Controllers\ProfileController@setAvatar']);
+    Route::delete('profile/avatar', ['as' => 'user_avatar.remove', 'uses' => 'App\Http\Controllers\ProfileController@deleteAvatar']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 
     // Contact Management pages routes
     Route::resource('/contact', 'App\Http\Controllers\ContactController');
-    Route::resource('/reminder', 'App\Http\Controllers\ReminderController');
-    Route::resource('/activity', 'App\Http\Controllers\ActivityController');
-    Route::resource('/gift', 'App\Http\Controllers\GiftController');
-    Route::resource('/debt', 'App\Http\Controllers\DebtController');
-    Route::resource('/life-event', 'App\Http\Controllers\LifeEventController');
+    Route::get('/contact/{contact}/extra', ['as' => 'extra.edit', 'uses' => 'App\Http\Controllers\ContactController@editExtra']);
+	Route::put('contact/{contact}/extra', ['as' => 'extra.update', 'uses' => 'App\Http\Controllers\ContactController@updateExtra']);
+    Route::get('/contact/{contact}/avatar', ['as' => 'avatar.select', 'uses' => 'App\Http\Controllers\ContactController@chooseAvatar']);
+    Route::post('/contact/{contact}/avatar', ['as' => 'avatar.update', 'uses' => 'App\Http\Controllers\ContactController@setAvatar']);
+    Route::delete('/contact/{contact}/avatar', ['as' => 'avatar.remove', 'uses' => 'App\Http\Controllers\ContactController@deleteAvatar']);
+    Route::resource('/contact/{contact}/reminder', 'App\Http\Controllers\ReminderController')->except(['index', 'show']);
+    Route::resource('/contact/{contact}/activity', 'App\Http\Controllers\ActivityController')->except(['index', 'show']);
+    Route::resource('/contact/{contact}/gift', 'App\Http\Controllers\GiftController')->except(['index', 'show']);
+    // Route::delete('/contact/{contact}/avatar', ['as' => 'gift_photo.remove', 'uses' => 'App\Http\Controllers\GiftController@deletePhoto']);
+    Route::resource('/contact/{contact}/debt', 'App\Http\Controllers\DebtController')->except(['index', 'show']);
+    Route::resource('/contact/{contact}/life-event', 'App\Http\Controllers\LifeEventController');
     Route::resource('/timeline', 'App\Http\Controllers\TimelineController');
-});
-

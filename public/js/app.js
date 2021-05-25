@@ -1,68 +1,3 @@
-// Search bar animation
-$(".btn-search").click(function(){
-  $(".input-search").toggleClass("active").focus();
-  $(this).toggleClass("animate");
-  $(".input-search").val("");
-});
-
-// Hide submenus
-$('#body-row .collapse').collapse('hide'); 
-
-// Collapse/Expand icon
-$('#collapse-icon').addClass('fa-angle-double-left'); 
-
-// Collapse click
-$('[data-toggle=sidebar-colapse]').click(function() {
-    SidebarCollapse();
-});
-
-function SidebarCollapse () {
-    $('.menu-collapsed').toggleClass('d-none');
-    $('.sidebar-submenu').toggleClass('d-none');
-    $('.submenu-icon').toggleClass('d-none');
-    $('#sidebar-container').toggleClass('sidebar-expanded sidebar-collapsed');
-    
-    // Treating d-flex/d-none on separators with title
-    var SeparatorTitle = $('.sidebar-separator-title');
-    if ( SeparatorTitle.hasClass('d-flex') ) {
-        
-    } else {
-        SeparatorTitle.addClass('d-flex');
-    }
-    
-    // Collapse/Expand icon
-    $('#collapse-icon').toggleClass('fa-angle-double-left fa-angle-double-right');
-}
-
-// Admin manual password
-// var form = $('#editUserForm'),
-// radio = $('#manualPass'),
-// inputActive = $('#manualPassInput');
-
-// inputActive.hide();
-
-// radio.on('click', function() {
-//     if($(this).is(':checked')) {
-//         inputActive.show();
-//         inputActive.find('input').attr('required', true);
-//     } else {
-//         inputActive.hide();
-//         inputActive.find('input').attr('required', false);
-//     }
-// })
-
-// Hide or show crud permission option
-function createPer(x) {
-    if (x == 0) {
-        document.getElementById("basicPer").style.display = "block";
-        document.getElementById("crudPer").style.display = "none";
-    }
-    if (x == 1) {
-        document.getElementById("crudPer").style.display = "block";
-        document.getElementById("basicPer").style.display = "none";
-    }
-}
-
 // Hide or show manual password option in create user option
 $(document).ready(function(){
     $('input[type="checkbox"]').click(function(){
@@ -81,3 +16,86 @@ function manualPassInput(x) {
         document.getElementById("manualPassInput").style.display = "block";
     }
 }
+
+// Hide or show birthday option in edit contact option
+function createDOB(x) {
+    if (x == 0) {
+        document.getElementById("exactDOB").style.display = "none";
+    }
+    if (x == 1) {
+        document.getElementById("exactDOB").style.display = "block";
+    }
+}
+// Datatable
+$(document).ready(function() {
+    $('#contactDataTable').DataTable( {
+        select: true
+    } );
+} );
+
+// Datepicker
+$(function () {
+    $('.datepicker').datepicker({
+        format: "d MM yyyy",
+        endDate: "now",
+        clearBtn: true,
+    });
+})
+
+$(function () {
+    $('.datepicker-reminder').datepicker({
+        format: "d MM yyyy",
+        startDate: "now",
+        clearBtn: true,
+    });
+})
+
+$(function () {
+    $('.datepicker-lifeEvent').datepicker({
+        format: "d MM yyyy",
+        endDate: "now",
+        clearBtn: true,
+    });
+})
+
+// Custom upload button
+document.querySelector("html").classList.add('js');
+
+var fileInput  = document.querySelector( ".input-file" ),  
+    button     = document.querySelector( ".input-file-trigger" ),
+    the_return = document.querySelector(".file-return");
+      
+button.addEventListener( "keydown", function( event ) {  
+    if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+        fileInput.focus();  
+    }  
+});
+button.addEventListener( "click", function( event ) {
+   fileInput.focus();
+   return false;
+});  
+fileInput.addEventListener( "change", function( event ) {  
+    the_return.innerHTML = this.value;  
+});  
+// End of custom upload button
+
+// Dynamic timeline
+// $(document).ready(function(){
+//     jQuery('.timeline').timeline({
+//         //mode: 'horizontal',
+//         visibleItems: 2
+//     });
+// });
+
+$(function () {
+    $('.timeline').timeline({
+        //mode: 'horizontal',
+        visibleItems: 2
+    });
+})
+// End of dynamic timeline
+
+// Retain scroll position after page refresh
+window.addEventListener('scroll', (event) => {
+    console.log('Scrolled');
+});

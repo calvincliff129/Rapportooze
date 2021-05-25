@@ -10,8 +10,8 @@
         <title>{{ $page ?? __('Administration') }} | Rapportooze</title>
 
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('image/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('image/favicon.ico') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -20,6 +20,7 @@
         <!-- CSS -->
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+        <link href="{{ asset('css/dataTables.css') }}" rel="stylesheet" />
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -68,7 +69,8 @@
         <script src="{{ asset('black') }}/js/theme.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-
+        <script src="{{ asset('js/dataTables.js') }}"></script>
+        <script src="https://kit.fontawesome.com/9d3ccc59e0.js" crossorigin="anonymous"></script>
         @stack('js')
 
         <script>

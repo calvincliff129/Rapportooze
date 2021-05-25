@@ -10,7 +10,13 @@
                     <p>{{ _('Dashboard') }}</p>
                 </a>
             </li>
-            <li>
+            <li @if ($pageSlug == 'contact') class="active " @endif>
+                <a href="{{ route('contact.index') }}">
+                    <i class="far fa-user-circle"></i>
+                    <p>{{ _('Contacts') }}</p>
+                </a>
+            </li>
+            <!-- <li>
                 <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
                     <i class="far fa-address-book" ></i>
                     <span class="nav-link-text" >{{ __('Manage Contacts') }}</span>
@@ -22,30 +28,30 @@
                         <li @if ($pageSlug == 'contact') class="active " @endif>
                             <a href="{{ route('contact.index') }}">
                                 <i class="far fa-user-circle"></i>
-                                <p>{{ _('Contact') }}</p>
-                            </a>
-                        </li>
-                        <li @if ($pageSlug == 'reminder') class="active " @endif>
-                            <a href="{{ route('reminder.index') }}">
-                                <i class="far fa-clock"></i>
-                                <p>{{ _('Reminder') }}</p>
+                                <p>{{ _('Contacts') }}</p>
                             </a>
                         </li>
                         <li @if ($pageSlug == 'activity') class="active " @endif>
-                            <a href="{{ route('activity.index') }}">
-                                <i class="far fa-calendar-check"></i>
-                                <p>{{ _('Activity') }}</p>
+                            <a href="#">
+                                <i class="far fa-clock"></i>
+                                <p>{{ _('Activities') }}</p>
                             </a>
                         </li>
-                        <li @if ($pageSlug == 'timeline') class="active " @endif>
-                            <a href="{{ route('timeline.index') }}">
-                                <i class="fas fa-heartbeat"></i>
-                                <p>{{ _('Timeline') }}</p>
+                        <li @if ($pageSlug == 'gift') class="active " @endif>
+                            <a href="#">
+                                <i class="fas fa-gift"></i>
+                                <p>{{ _('Gifts') }}</p>
+                            </a>
+                        </li>
+                        <li @if ($pageSlug == 'debt') class="active " @endif>
+                            <a href="#">
+                                <i class="far fa-money-bill-alt"></i>
+                                <p>{{ _('Debts') }}</p>
                             </a>
                         </li>
                     </ul>
                 </div>
-            </li>
+            </li> -->
             <li @if ($pageSlug == 'profile') class="active " @endif>
                 <a href="{{ route('profile.edit') }}">
                     <i class="far fa-user"></i>

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use App\Observers\UserObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer(
+
+            'layouts.navbars.navs.auth',                  
+
+            function ($view) {
+                $view->with('user', auth()->user())->with('imagePath', public_path('/uploads/avatars/').auth()->user()->avatar);
+            }
+        );
     }
 }

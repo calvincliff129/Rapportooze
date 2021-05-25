@@ -1,61 +1,58 @@
 @extends('layouts.user', ['page' => __('Contact'), 'pageSlug' => 'contact'])
 
 @section('content')
-<div class="container">
-    <div class="d-flex flex-column justify-content-center align-items-center" style="height: 400px;">
-        <div class="col-md-8">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <div class="card">
-                            <div class="card-header">{{ __('Contact') }}</div>
-
-                            <div class="card-body">
-                                @if (session('status'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('status') }}
-                                    </div>
-                                @endif
-
-                                <table class="table tablesorter " id="">
-                                    <thead class=" text-primary">
-                                        <tr><th scope="col"></th>
-                                        <th scope="col">Contact Name</th>
-                                        <th scope="col">Info</th>
-                                    </tr></thead>
-                                    <tbody>
-                                        <tr>
-                                        <th></th>
-                                        <td></td>
-                                        <td></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>Country:</strong>
-                                        <select name="country" id="country" class="form-control mb-1">
-                                            <option value="">Select Country</option>
-                                            @foreach ($countries as $country)
-                                                <option value="{{ $country }}">{{ $country }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endauth
+<div class="row">
+    <div class="col-md-12">
+        <div class="container card">
+            <div class="d-flex flex-row justify-content-between card-body">
+                <div>
+                    <h4 class="card-title"><strong>You have {{ $contactsCount }} Contact(s)</strong><small> ~Listed by alphabetical order~</small></h4>
                 </div>
-            @endif
+                <div>
+                    <a href="{{ route('contact.create') }}" class="btn btn-sm btn-primary">Add Contact</a>
+                </div>
+            </div>
+            <div class="card-body table-card">
+                <div class="table-responsive-xl table-hover">
+                    <table class="table">
+                        <thead>
+                            <tr class="text-center alert alert-dismissible">
+                                <th style="border: 0; width: 40%;" scope="col">Contact Name</th>
+                                <th style="border: 0;" scope="col">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            @foreach ($contacts as $contact)
+                            <tr class="alert alert-primary">
+                                <td class="d-flex align-items-center" style="border: 0; border-radius: 5rem;">
+                                    <a href="{{ route('contact.show', $contact->id) }}">
+                                        <div class="img" style="min-width: 70px">
+                                            @if ($contact->avatar == null)
+                                                {!! Avatar::create($contact->first_name)->toSvg(); !!}
+                                            @else
+                                                <img src="/uploads/avatars/{{ $contact->avatar }}" class="border bg-primary border-primary" style="padding: .125rem; width: 55px; height: 55px; float:left; border-radius:35%;">
+                                            @endif
+                                        </div>
+                                        <div class="pl-3 email">
+                                            <span>{{$contact->first_name}}&nbsp;{{$contact->middle_name}}&nbsp;{{$contact->last_name}}&nbsp; @if (!empty( $contact->nickname )) ({{$contact->nickname}}) @endif</span>
+                                            <span>Added: {{ date('j M Y', strtotime($contact->created_at)) }}</span>
+                                        </div>
+                                    </a> 
+                                </td>
+                                <td style="border: 0;">
+                                    <a href="{{ route('contact.show', $contact->id) }}">
+                                        {{$contact->description}}
+                                    </a>
+                                </td>
+                                <!-- <td class="status"><span class="active">Active</span></td> -->
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
         </div>
+        {{$contacts->links('vendor.pagination.bootstrap-4')}}
     </div>
 </div>
 @endsection

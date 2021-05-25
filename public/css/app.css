@@ -48,6 +48,10 @@ button:focus
   backdrop-filter: blur(40px);
 }
 
+.drpdwn-gender {
+  background-color: purple !important;
+}
+
 .card-custom {
   border-radius: 1%;
   background: rgba(24, 24, 16, .2);

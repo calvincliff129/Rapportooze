@@ -18,8 +18,7 @@ return [
         ],
         'user' => [
             'profile' => 'r,u',
-        ],
-        'role_name' => []
+        ]
     ],
 
     'permissions_map' => [

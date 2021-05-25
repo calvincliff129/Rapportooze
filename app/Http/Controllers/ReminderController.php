@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Carbon\Carbon;
+use App\Models\Contact;
+use App\Models\Activity;
+use App\Models\Reminder;
 use Illuminate\Http\Request;
 
 class ReminderController extends Controller
@@ -19,22 +24,49 @@ class ReminderController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Contact $contact
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Contact $contact)
     {
-        //
+        $userId = Auth::user()->id;
+        $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
+        $activity = Activity::where('contact_id', $contact->id)->orderBy('happened_at','desc')->first();
+
+        return view('user.reminder.create')
+            ->withContact($contact)
+            ->withContacts($contacts)
+            ->withActivity($activity);
     }
 
     /**
      * Store a newly created resource in storage.
      *
+     * @param Contact $contact
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Contact $contact)
     {
-        //
+        $this->validateWith([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|max:255',
+            'reminder_date' => 'required|date',
+        ]);
+
+        $userId = Auth::user()->id;
+        $reminder = new Reminder();
+        $reminder->user_id = $userId;
+        $reminder->contact_id = $contact->id;
+        $reminder->is_birthday = 0;
+        $reminder->title = $request->title;
+        $reminder->description = $request->description;
+        $r_dt = Carbon::parse($request->reminder_date);
+        $reminder->reminder_date = $r_dt;
+        $reminder->frequency_type = $request->frequency_type;
+        $reminder->save();
+
+        return redirect()->route('contact.show', $contact->id);
     }
 
     /**
@@ -51,34 +83,65 @@ class ReminderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Contact $contact
+     * @param Reminder $reminder
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact, Reminder $reminder)
     {
-        //
+        $userId = Auth::user()->id;
+        // $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
+        $activity = Activity::where('contact_id', $contact->id)->orderBy('happened_at','desc')->first();
+        
+        return view('user.reminder.edit')
+            ->withContact($contact)
+            ->withReminder($reminder)
+            ->withActivity($activity);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param Contact $contact
+     * @param Reminder $reminder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contact $contact, Reminder $reminder)
     {
-        //
+        $this->validateWith([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|max:255',
+            'reminder_date' => 'required|date',
+        ]);
+
+        $userId = Auth::user()->id;
+        $reminder = Reminder::where('id', $reminder->id)->where('contact_id', $contact->id)->findOrFail($reminder->id);
+        $reminder->user_id = $userId;
+        $reminder->contact_id = $contact->id;
+        $reminder->is_birthday = 0;
+        $reminder->title = $request->title;
+        $reminder->description = $request->description;
+        $r_dt = Carbon::parse($request->reminder_date);
+        $reminder->reminder_date = $r_dt;
+        $reminder->frequency_type = $request->frequency_type;
+        $reminder->save();
+
+        return redirect()->route('contact.show', $contact->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Request  $request
+     * @param Contact $contact
+     * @param Reminder $reminder
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Contact $contact, Reminder $reminder)
     {
-        //
+        Reminder::where('id', $reminder->id)->where('contact_id', $contact->id)->delete();
+
+        return redirect()->route('contact.show', $contact);
     }
 }

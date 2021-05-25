@@ -143,6 +143,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+      DB::table('activities')->delete($id);
     }
 }

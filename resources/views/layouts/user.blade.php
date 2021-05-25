@@ -10,8 +10,8 @@
         <title>{{ $page ?? __('Dashboard') }} | Rapportooze</title>
 
         <!-- Favicon -->
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('black') }}/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="{{ asset('black') }}/img/favicon.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('image/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('image/favicon.ico') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -20,6 +20,11 @@
         <!-- CSS -->
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
+        <!-- <link href="{{ asset('css/table/style.css') }}" rel="stylesheet" /> -->
+        <link href="{{ asset('css/dataTables.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/bootstrap-datepicker3.standalone.css') }}" rel="stylesheet" />
+        <link rel="stylesheet" href="{{ asset('css/timeline.min.css') }}" />
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css"  rel="stylesheet"> -->
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -29,6 +34,7 @@
                     @include('layouts.navbars.navbar')
 
                     <div class="content">
+                        {{ Breadcrumbs::render() }}
                         @yield('content')
                     </div>
 
@@ -68,7 +74,19 @@
         <script src="{{ asset('black') }}/js/theme.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-
+        <script src="{{ asset('js/dataTables.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+        <script src="{{ asset('js/timeline.min.js') }}"></script>
+        <script src="https://kit.fontawesome.com/9d3ccc59e0.js" crossorigin="anonymous"></script>
+        <!-- <script src="{{ asset('js/jquery.js') }}"></script> -->
+        <!-- Contact table -->
+        <!-- <script src="{{ asset('js/table/jquery.min.js') }}" defer></script>
+        <script src="{{ asset('js/table/popper.js') }}" defer></script>
+        <script src="{{ asset('js/table/bootstrap.min.js') }}" defer></script>
+        <script src="{{ asset('js/table/main.js') }}" defer></script> -->
+        <!-- Contact table -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script> -->
         @stack('js')
 
         <script>

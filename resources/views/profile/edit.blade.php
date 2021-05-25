@@ -65,7 +65,7 @@
                 </form>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 order-first order-md-0">
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
@@ -74,17 +74,23 @@
                             <div class="block block-two"></div>
                             <div class="block block-three"></div>
                             <div class="block block-four"></div>
-                            <a href="#">
-                                <img class="avatar" src="{{ asset('black') }}/img/anime3.png" alt="">
-                                <h5 class="title">{{ auth()->user()->name }}</h5>
-                            </a>
-                            <p class="description">
-                                {{ __('Once/Student') }}
-                            </p>
+                            <div class="author d-flex justify-content-center">
+                                <a href="{{ route('user_avatar.select') }}">
+                                    @if ($user->avatar == null)
+                                        <div class="avatar">{!! Avatar::create($user->name)->setFontSize(50)->setBorder(0, '#fff', 60)->setDimension(114)->toSvg(); !!}</div>
+                                    @else
+                                        <img class="avatar" src="/uploads/avatars/{{ $user->avatar }}">
+                                    @endif
+                                </a>
+                            </div>
+                            <h5 class="title">{{ auth()->user()->name }}</h5>
+                            <!-- <p class="description">
+                                {{ $user->email}}
+                            </p> -->
                         </div>
                     </p>
                     <div class="card-description text-center">
-                        {{ __('Just doin somethin...') }}
+                        <i class="fas fa-envelope"></i>&nbsp;&nbsp;{{ $user->email }}
                     </div>
                 </div>
                 <div class="card-footer">
