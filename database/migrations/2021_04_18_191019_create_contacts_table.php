@@ -64,7 +64,6 @@ class CreateContactsTable extends Migration
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('avatar_photo_id')->references('id')->on('photos')->onDelete('cascade');
             $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
         });
 
