@@ -2,7 +2,7 @@
 
 namespace App\Console;
 
-use App\Console\Commands\NotifyUsers;
+use App\Console\Commands\SendReminderEmails;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        NotifyUsers::class,
+        SendReminderEmails::class,
     ];
 
     /**
@@ -25,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->command('users:notify')->dailyAt('now');
+        $schedule->command('reminder:emails')
+                ->dailyAt('08:00');
     }
 
     /**

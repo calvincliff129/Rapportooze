@@ -2,7 +2,7 @@
 
 @section('content')
 <hr class="dashed">
-<div class="container mt-5" style="max-width: 70rem; min-width: 29rem;">
+<div class="container mt-5" style="max-width: 70rem;">
     <div class="row gx-4">
         <div class="col-xl">
             <div class="card text-white">

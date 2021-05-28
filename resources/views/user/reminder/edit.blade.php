@@ -66,10 +66,8 @@
                         <label for="frequency_type">Remind me</label>
                         <div class="form-group">
                             <select name="frequency_type" id="frequency_type" class="form-control mb-1">
-                                <option class="dropdown-item" value="once" {{ $reminder->frequency_type == 'once' ? 'selected' : '' }}>Once</option>
-                                <option class="dropdown-item" value="week" {{ $reminder->frequency_type == 'week' ? 'selected' : '' }}>Every week</option>
-                                <option class="dropdown-item" value="month" {{ $reminder->frequency_type == 'month' ? 'selected' : '' }}>Every month</option>
-                                <option class="dropdown-item" value="year" {{ $reminder->frequency_type == 'year' ? 'selected' : '' }}>Every year</option>
+                                <option class="dropdown-item" value="once" {{ $reminder->frequency_type == 'once' ? 'selected' : '' }}>Once only</option>
+                                <option class="dropdown-item" value="recurring" {{ $reminder->frequency_type == 'recurring' ? 'selected' : '' }}>Repeating</option>
                             </select>
                         </div>
                     </div>

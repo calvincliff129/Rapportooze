@@ -34,7 +34,7 @@ Breadcrumbs::for('contact.create', function (BreadcrumbTrail $trail) {
 // Home > Contact > [Name]
 Breadcrumbs::for('contact.show', function (BreadcrumbTrail $trail, Contact $contact) {
     $trail->parent('contact.index');
-    $trail->push($contact->first_name, route('contact.show', $contact));
+    $trail->push($contact->first_name.' '.$contact->last_name, route('contact.show', $contact));
 });
 
 // Home > Contact > [Category]

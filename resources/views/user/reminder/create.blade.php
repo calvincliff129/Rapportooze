@@ -66,10 +66,8 @@
                         <div class="form-group">
                             <select name="frequency_type" id="frequency_type" class="form-control mb-1">
                                 <!-- <option class="dropdown-item">Remind me every</option> -->
-                                <option class="dropdown-item" value="once">Once</option>
-                                <option class="dropdown-item" value="week">Every week</option>
-                                <option class="dropdown-item" value="month">Every month</option>
-                                <option class="dropdown-item" value="year">Every year</option>
+                                <option class="dropdown-item" value="once">Once only</option>
+                                <option class="dropdown-item" value="recurring">Repeating</option>
                             </select>
                         </div>
                     </div>

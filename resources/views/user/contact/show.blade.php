@@ -263,7 +263,7 @@
                                                 </div>
                                                 <div class="col-1">
                                                     <small class="badge bg-primary text-wrap">
-                                                        {{ $reminder->frequency_type != 'once' ? 'Remind every' : 'Remind' }} {{ $reminder->frequency_type }}
+                                                        {{ $reminder->frequency_type != 'once' ? 'Set to' : 'Remind' }} {{ $reminder->frequency_type }}
                                                     </small>
                                                 </div>
                                                 <div class="col d-flex justify-content-end" style="margin-top: -0.6rem;">
@@ -271,7 +271,7 @@
                                                     <form action="{{ route('reminder.destroy', [$contact->id, $reminder->id]) }}" method="POST">
                                                         {{ method_field('DELETE') }}
                                                         {{ csrf_field() }}
-                                                        <button class="btn btn-warning btn-link d-inline"><i class="far fa-trash-alt"></i></button>
+                                                        <button class="btn btn-warning btn-link d-inline"><i class="fas fa-check-square"></i></button>
                                                     </form>
                                                 </div>
                                             </p>
