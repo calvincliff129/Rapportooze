@@ -206,7 +206,7 @@ class ContactController extends Controller
         $contact->save();
 
         // Session::flash('success', 'Permission has been successfully added');
-        return redirect()->route('contact.show', $id);
+        return redirect()->route('contact.show', $contact->id);
     }
 
     /**
