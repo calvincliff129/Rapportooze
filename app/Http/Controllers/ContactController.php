@@ -21,6 +21,7 @@ use App\Models\Activity;
 use App\Models\LifeEvent;
 use Laravolt\Avatar\Avatar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Response;
 use Monarobase\CountryList\CountryListFacade;
