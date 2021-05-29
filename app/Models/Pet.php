@@ -11,7 +11,6 @@ class Pet extends Model
 {
     use HasFactory;
     protected $table = 'pets';
-    protected $connection = 'pgsql';
 
     public function contacts(){
         return $this->belongsTo(Contact::class);

@@ -10,7 +10,6 @@ class Address extends Model
 {
     use HasFactory;
     protected $table = 'addresses';
-    protected $connection = 'pgsql';
 
     public function Contact(){
         return $this->belongsTo('App\Models\Contact');

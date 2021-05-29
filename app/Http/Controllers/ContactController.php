@@ -353,6 +353,9 @@ class ContactController extends Controller
 
     public function setAvatar(Request $request, Contact $contact)
     {
+        $this->validate([
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
 
     	// Handle avatar upload
     	if($request->hasFile('avatar')){
