@@ -66,6 +66,9 @@ class ProfileController extends Controller
 
     public function setAvatar(Request $request)
     {
+        $this->validateWith([
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
 
     	// Handle avatar upload
     	if($request->hasFile('avatar')){
