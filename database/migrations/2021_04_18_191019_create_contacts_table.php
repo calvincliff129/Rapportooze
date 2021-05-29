@@ -276,6 +276,10 @@ class CreateContactsTable extends Migration
             $table->timestamps();
         });
 
+        DB::table('genders')->insert(['name' => 'Male', 'type' => 'M']);
+        DB::table('genders')->insert(['name' => 'Female', 'type' => 'F']);
+        DB::table('genders')->insert(['name' => 'Other', 'type' => 'O']);
+
         DB::table('pet_types')->insert(['name' => 'Cat', 'is_common' => true]);
         DB::table('pet_types')->insert(['name' => 'Dog', 'is_common' => true]);
         DB::table('pet_types')->insert(['name' => 'Fish', 'is_common' => true]);
