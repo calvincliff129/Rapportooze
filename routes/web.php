@@ -28,10 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/roles', 'App\Http\Controllers\RoleController', ['except' => 'destroy']);
     });
 
-    
-});
-
-// User profile routes
+    // User profile routes
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
@@ -54,3 +51,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/contact/{contact}/debt', 'App\Http\Controllers\DebtController')->except(['index', 'show']);
     Route::resource('/contact/{contact}/life-event', 'App\Http\Controllers\LifeEventController');
     Route::resource('/timeline', 'App\Http\Controllers\TimelineController');
+});
+

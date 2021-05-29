@@ -39,7 +39,7 @@
                                         <input class="file" name="avatar" id="avatar" type="file">
                                         <label tabindex="0" for="avatar" class="input-file-avatar">Upload</label>
                                     </div> -->
-                                    <p class=""></p>
+                                    <p class="">Max size: 2MB</p>
                                 </div>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="col-lg mx-auto">

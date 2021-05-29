@@ -12,7 +12,7 @@ class Activity extends Model
     use HasFactory;
     use SoftDeletes;
 
-    public function Contact(){
-        return $this->belongsTo('App\Models\Contact');
+    public function contacts(){
+        return $this->belongsTo(Contact::class);
     }
 }

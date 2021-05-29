@@ -11,7 +11,7 @@ class Address extends Model
     use HasFactory;
     protected $table = 'addresses';
 
-    public function Contact(){
-        return $this->belongsTo('App\Models\Contact');
+    public function contacts(){
+        return $this->belongsTo(Contact::class);
     }
 }
