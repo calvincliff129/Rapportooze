@@ -344,11 +344,14 @@ class ContactController extends Controller
     {
         $userId = Auth::user()->id;
         $contact = Contact::where('user_id', $userId)->find($contact->id);
-        $imagePath = public_path('/uploads/avatars/').$contact->avatar;
+        // $imagePath = public_path('/uploads/avatars/').$contact->avatar;
+        
+        $path = 'uploads/avatars';
+        $url = Storage::disk('s3')->url($path.'/'.$contact->avatar);
                     
         return view('user.contact.avatar')
-                    ->withImagePath($imagePath)
-                    ->withContact($contact);
+                ->withUrl($url)
+                ->withContact($contact);
     }
 
     public function setAvatar(Request $request, Contact $contact)
@@ -356,14 +359,23 @@ class ContactController extends Controller
         $this->validateWith([
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
-
+        
+        $userId = Auth::user()->id;
     	// Handle avatar upload
     	if($request->hasFile('avatar')){
-    		$avatar = $request->file('avatar');
-    		$filename = time() . '.' . $avatar->getClientOriginalExtension();
-    		Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+    		// $avatar = $request->file('avatar');
+    		// $filename = time() . '.' . $avatar->getClientOriginalExtension();
+    		// Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
 
-    		$userId = Auth::user()->id;
+            $path = 'uploads/avatars';
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatar->resize(300, 300)->storeAs(
+                    '$path',
+                    'filename',
+                    's3'
+                );
+    		
             $contact = Contact::where('user_id',$userId)->find($contact->id);
     		$contact->avatar = $filename;
     		$contact->save();
