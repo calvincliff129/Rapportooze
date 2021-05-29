@@ -15,10 +15,10 @@
           <input type="text" class="form-control" name="display_name" id="display_name" value="{{$permission->display_name}}">
         </div>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label for="name" class="form-label">Name/Code <small>(Cannot be changed)</small></label>
           <input type="text" class="form-control" name="name" id="name" value="{{$permission->name}}" disabled>
-        </div>
+        </div> -->
 
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>

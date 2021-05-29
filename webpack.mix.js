@@ -12,71 +12,7 @@ const mix = require('laravel-mix');
  */
 
  mix.js('resources/js/app.js', 'public/js')
- .sass('resources/sass/app.scss', 'public/css')
- .options({
-   processCssUrls: false,
- });
-
-//  module.exports = {
-//     module: {
-//       rules: [
-//         {
-//           test: /\.s[ac]ss$/i,
-//           use: [
-//             // Creates `style` nodes from JS strings
-//             "style-loader",
-//             // Translates CSS into CommonJS
-//             "css-loader",
-//             // Compiles Sass to CSS
-//             "sass-loader",
-//           ],
-//         },
-//       ],
-//     },
-//   };
-
-//   module.exports = {
-//     module: {
-//       rules: [
-//         {
-//           test: /\.css$/i,
-//           use: [
-//             "style-loader",
-//             "css-loader",
-//             {
-//               loader: "postcss-loader",
-//               options: {
-//                 postcssOptions: {
-//                   plugins: [
-//                     [
-//                       "postcss-preset-env",
-//                       {
-//                         // Options
-//                       },
-//                     ],
-//                   ],
-//                 },
-//               },
-//             },
-//           ],
-//         },
-//       ],
-//     },
-//   };
-
-//   module.exports = {
-//     module: {
-//       rules: [
-//         {
-//           test: /\.css$/i,
-//           use: ["style-loader", "css-loader", "postcss-loader"],
-//         },
-//       ],
-//     },
-//   };
-
-//   module.exports = {
-//     plugins: [
-//       require('autoprefixer')
-//     ]
-//   }
+ .react()
+ .sass('resources/sass/app.scss', 'public/css', [
+     //
+ ]);

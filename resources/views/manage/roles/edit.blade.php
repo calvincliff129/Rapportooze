@@ -15,10 +15,10 @@
           <label for="display_name" class="form-label">Name (Human Readable)</label>
           <input type="text" class="form-control" name="display_name" value="{{$role->display_name}}" id="display_name">
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label for="name" class="form-label">Slug (Can not be edited)</label>
           <input type="text" class="form-control" name="name" value="{{$role->name}}" disabled id="name">
-        </div>
+        </div> -->
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
           <input type="text" class="form-control" value="{{$role->description}}" id="description" name="description">
