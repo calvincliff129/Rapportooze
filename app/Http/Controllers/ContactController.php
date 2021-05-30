@@ -348,7 +348,7 @@ class ContactController extends Controller
         // $imagePath = public_path('/uploads/avatars/').$contact->avatar;
         
         $path = 'avatars';
-        $url = Storage::disk('s3')->url($path.'/'.$contact->avatar);
+        $url = Storage::disk('s3')->get($path.'/'.$contact->avatar);
         
         return view('user.contact.avatar')
                 ->withUrl($url)
@@ -357,9 +357,9 @@ class ContactController extends Controller
 
     public function setAvatar(Request $request, Contact $contact)
     {
-        // $this->validateWith([
-        //     'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
-        // ]);
+        $this->validateWith([
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
         
         $userId = Auth::user()->id;
     	// Handle avatar upload
