@@ -351,10 +351,10 @@ class ContactController extends Controller
         if (Storage::disk('s3')->exists($path.'/'.$contact->avatar)) {
             $url = Storage::disk('s3')->get($path.'/'.$contact->avatar);
         } else {
-            return 'not here';
-            // $url = 0;
+            // return 'not here';
+            $url = 0;
         }
-        dd($url);
+        // dd($url);
         
         return view('user.contact.avatar')
                 ->withUrl($url)
