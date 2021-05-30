@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Auth;
 use Image;
 use Session;
-use Storage;
 use LaraFlash;
 use Carbon\Carbon;
 use App\Models\Pet;
@@ -23,6 +22,7 @@ use App\Models\LifeEvent;
 use Laravolt\Avatar\Avatar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Response;
 use Monarobase\CountryList\CountryListFacade;
 
@@ -372,9 +372,9 @@ class ContactController extends Controller
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             $avatar->store(
-                    '$path',
-                    's3'
-                );
+                '$path',
+                's3'
+            );
     		
             $contact = Contact::where('user_id',$userId)->find($contact->id);
     		$contact->avatar = $filename;
