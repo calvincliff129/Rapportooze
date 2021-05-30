@@ -348,7 +348,7 @@ class ContactController extends Controller
         // $imagePath = public_path('/uploads/avatars/').$contact->avatar;
         
         $path = 'avatars/';
-        $url = Storage::disk('s3')->get($path.'/'.$contact->avatar);
+        $url = Storage::disk('s3')->get($path.$contact->avatar);
         
         return view('user.contact.avatar')
                 ->withUrl($url)
