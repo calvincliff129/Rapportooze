@@ -11,7 +11,7 @@
                         <p for="activity">Update contact's extra info section.</</p>
                     </div> -->
                     
-                    <form enctype="multipart/form-data" action="{{ route('avatar.update', $contact->id) }}" method="POST">
+                    <form enctype="multipart/form-data" action="{{ route('avatar.update', $contact->id) }}" method="POST" files="true">
                     
                         <div class="card bg-dark">
                             <div class="card-header title text-center">
@@ -23,7 +23,7 @@
                                     @if ($contact->avatar == null)
                                         <div>{!! Avatar::create($contact->first_name)->setFontSize(70)->setBorder(0, '#fff', 30)->setDimension(250)->toSvg(); !!}</div>
                                     @else
-                                        <img src="{{ @$url}}" style="width: 250px; height: 250px; border-radius:15%;">
+                                        <img src="{{ @$url }}" style="width: 250px; height: 250px; border-radius:15%;">
                                     @endif
                                 </div>
                                 
