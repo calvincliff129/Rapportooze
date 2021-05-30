@@ -369,12 +369,12 @@ class ContactController extends Controller
     		// Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
 
             $avatar = $request->file('avatar');
-            $path = 'uploads/avatars';
+            $path = 'uploads/avatars/';
             $filename = 'avatar.'.$request->avatar->getClientOriginalExtension();
-            Storage::disk('s3')->put($path, $filename);
-            $avatar->store(
+            // Storage::disk('s3')->put($path, $filename);
+            $avatar->storeAs(
                 '$path',
-                // '$filename',
+                '$filename',
                 's3'
             );
     		
