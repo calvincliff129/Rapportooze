@@ -353,7 +353,7 @@ class ContactController extends Controller
         // } else {
         //     $url = 0;
         // }
-        dd($url);
+        // dd($url);
         
         return view('user.contact.avatar')
                 ->withUrl($url)
