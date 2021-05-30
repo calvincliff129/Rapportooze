@@ -371,7 +371,7 @@ class ContactController extends Controller
             $path = 'uploads/avatars';
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Storage::disk('s3')->put($path, $avatar);
+            Storage::disk('s3')->put($path, $filename);
             // $avatar->store(
             //     '$path',
             //     's3'
