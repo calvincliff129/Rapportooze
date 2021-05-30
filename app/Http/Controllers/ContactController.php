@@ -356,7 +356,7 @@ class ContactController extends Controller
         // dd($url);
         
         return view('user.contact.avatar')
-                ->withUrl($url)
+                // ->withUrl($url)
                 ->withContact($contact);
     }
 
