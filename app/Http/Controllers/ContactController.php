@@ -347,16 +347,16 @@ class ContactController extends Controller
         $contact = Contact::where('user_id', $userId)->find($contact->id);
         // $imagePath = public_path('/uploads/avatars/').$contact->avatar;
         
-        // $path = 'avatars';
-        // if (Storage::disk('s3')->exists($path.'/'.$contact->avatar)) {
-        //     $url = Storage::disk('s3')->get($path.'/'.$contact->avatar);
-        // } else {
-        //     $url = 0;
-        // }
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar)) {
+            $url = Storage::disk('s3')->url($path.'/'.$contact->avatar);
+        } else {
+            $url = 0;
+        }
         // dd($url);
         
         return view('user.contact.avatar')
-                // ->withUrl($url)
+                ->withUrl($url)
                 ->withContact($contact);
     }
 

@@ -23,7 +23,7 @@
                                     @if ($contact->avatar == null)
                                         <div>{!! Avatar::create($contact->first_name)->setFontSize(70)->setBorder(0, '#fff', 30)->setDimension(250)->toSvg(); !!}</div>
                                     @else
-                                        <img src="Storage::disk('s3')->url('avatars/'.{{ $contact->avatar }})" style="width: 250px; height: 250px; border-radius:15%;">
+                                        <img src="{{ @$url }}" style="width: 250px; height: 250px; border-radius:15%;">
                                     @endif
                                 </div>
                                 
