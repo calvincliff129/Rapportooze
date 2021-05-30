@@ -348,7 +348,7 @@ class ContactController extends Controller
         // $imagePath = public_path('/uploads/avatars/').$contact->avatar;
         
         $path = 'uploads/avatars/';
-        $url = Storage::disk('s3')->url($path.$contact->avatar);
+        $url = Storage::disk('s3')->url($path.'/'.$contact->avatar);
         
         return view('user.contact.avatar')
                 ->withUrl($url)
@@ -391,7 +391,7 @@ class ContactController extends Controller
         $contact = Contact::where('user_id', $user)->find($contact->id);
 
         $path = 'uploads/avatars';
-        Storage::disk('s3')->delete($path.$contact->avatar);
+        Storage::disk('s3')->delete($path.'/'.$contact->avatar);
 
         $contact->avatar = null;
         $contact->save();
