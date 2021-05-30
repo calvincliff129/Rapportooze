@@ -349,8 +349,7 @@ class ContactController extends Controller
         
         $path = 'avatars';
         if (Storage::disk('s3')->exists($path.'/'.$contact->avatar)) {
-            return 'Its there';
-            // $url = Storage::disk('s3')->get('rapportooze'.'/'.$path.'/'.$contact->avatar);
+            $url = Storage::disk('s3')->get($path.'/'.$contact->avatar);
         } else {
             return 'not here';
             // $url = 0;
