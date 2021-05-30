@@ -373,7 +373,7 @@ class ContactController extends Controller
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             $avatar->storeAs(
                     '$path',
-                    'filename',
+                    '$filename',
                     's3'
                 );
     		
