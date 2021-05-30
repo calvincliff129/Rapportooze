@@ -347,7 +347,7 @@ class ContactController extends Controller
         $contact = Contact::where('user_id', $userId)->find($contact->id);
         // $imagePath = public_path('/uploads/avatars/').$contact->avatar;
         
-        $path = 'uploads/avatars/';
+        $path = 'avatars';
         $url = Storage::disk('s3')->url($path.'/'.$contact->avatar);
         
         return view('user.contact.avatar')
@@ -369,11 +369,12 @@ class ContactController extends Controller
     		// Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
 
             $avatar = $request->file('avatar');
-            $path = 'uploads/avatars/';
+            $path = 'avatars';
             $filename = time().'.'.$request->avatar->getClientOriginalExtension();
             // Storage::disk('s3')->put($path, $avatar);
-            $avatar->storePublicly(
-                $path.$filename,
+            $avatar->storePubliclyAs(
+                $path,
+                $filename,
                 's3'
             );
     		
@@ -390,7 +391,7 @@ class ContactController extends Controller
         $user = auth()->user()->id;
         $contact = Contact::where('user_id', $user)->find($contact->id);
 
-        $path = 'uploads/avatars';
+        $path = 'avatars';
         Storage::disk('s3')->delete($path.'/'.$contact->avatar);
 
         $contact->avatar = null;
