@@ -263,7 +263,7 @@ class ContactController extends Controller
     public function updateExtra(Request $request, Contact $contact)
     {
         $this->validateWith([
-            'email' => 'required|string|max:255',
+            'email' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:255',
             'facebook' => 'nullable|string|max:255',
             'twitter' => 'nullable|string|max:255',
@@ -369,8 +369,8 @@ class ContactController extends Controller
     		// Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
 
             $path = 'uploads/avatars';
+            $filename = time() . '.' . $request->avatar->getClientOriginalExtension();
             $avatar = $request->file('avatar');
-            $filename = time() . '.' . $avatar->getClientOriginalExtension();
             Storage::disk('s3')->put($path, $filename);
             // $avatar->store(
             //     '$path',
