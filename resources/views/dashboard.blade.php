@@ -8,25 +8,25 @@
                 <div class="container text-center">
                     <div class="row row-cols-4">
                         <div class="col">
-                            <h4 class="card-title mb-4">Contacts</h4>
+                            <p class="card-title mb-4">Contacts</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $contactsCount }}</strong>
                             </span>
                         </div>
                         <div class="col">
-                            <h4 class="card-title mb-4">Debts</h4>
+                            <p class="card-title mb-4">Debts</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $debtsCount }}</strong>
                             </span>
                         </div>
                         <div class="col">
-                            <h4 class="card-title mb-4">Gifts</h4>
+                            <p class="card-title mb-4">Gifts</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $giftsCount }}</strong>
                             </span>
                         </div>
                         <div class="col">
-                            <h4 class="card-title mb-4">Activities</h4>
+                            <p class="card-title mb-4">Activities</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $activitiesCount }}</strong>
                             </span>
