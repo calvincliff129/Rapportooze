@@ -14,8 +14,12 @@
                         </div>
                         <div class="row mb-2 d-flex align-items-center justify-content-center">
                             <div class="col-auto">
-                                <a href="#">
-                                    <img class="avatar" src="{{ asset('black') }}/img/anime3.png" alt="">
+                                <a href="{{ route('avatar.select', $contact->id) }}">
+                                    @if ($contact->avatar == null)
+                                        <div class="avatar">{!! Avatar::create($contact->first_name)->setFontSize(50)->setBorder(0, '#fff', 60)->setDimension(114)->toSvg(); !!}</div>
+                                    @else
+                                        <img class="avatar" src="{{ @$url }}">
+                                    @endif
                                 </a>
                             </div>
                             <div class="col-auto">
