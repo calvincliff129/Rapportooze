@@ -43,7 +43,6 @@ class ContactController extends Controller
         
         return view('user.contact.index')
             ->withContacts($contacts)
-            ->withImagePath($imagePath)
             ->withContactsCount($contactsCount);
     }
 
@@ -111,8 +110,6 @@ class ContactController extends Controller
         $gifts = Gift::where('user_id', $userId)->where('contact_id', $contact->id)->latest()->get();
         $debts = Debt::where('user_id', $userId)->where('contact_id', $contact->id)->latest()->get();
         $lifeEvents = LifeEvent::where('user_id', $userId)->where('contact_id', $contact->id)->orderBy('happened_at', 'desc')->get();
-        $imagePath = public_path('/uploads/avatars/').$contact->avatar;
-
         $check_address = Address::where('user_id',$userId)->where('contact_id', $contact->id)->first();
         if ($check_address === null) {
 
@@ -159,7 +156,6 @@ class ContactController extends Controller
             ->withAddress($address)
             ->withPet($pet)
             ->withUrl($url)
-            ->withImagePath($imagePath);
     }
 
     /**
