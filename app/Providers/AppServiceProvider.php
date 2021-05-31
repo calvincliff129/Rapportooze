@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
             'layouts.navbars.navs.auth',                  
 
             function ($view) {
-                $view->with('user', auth()->user())->with('url', Storage::disk('s3')->temporaryUrl('avatars/'.auth()->user()->avatar, now()->addMinutes(60)));
+                $view->with('user', auth()->user())->with('url', Storage::disk('s3')->temporaryUrl('user_avatars/'.auth()->user()->avatar, now()->addMinutes(60)));
             }
         );
     }
