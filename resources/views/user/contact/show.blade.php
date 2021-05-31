@@ -27,7 +27,7 @@
                             </a>
                         </div>
                         <div class="col-auto">
-                            <h2 class="title">{{$contact->first_name}} {{$contact->middle_name}} {{$contact->last_name}} @if(!empty($contact->nickname)) ({{$contact->nickname}}) @else @endif</h2>
+                            <h3 class="title">{{$contact->first_name}} {{$contact->middle_name}} {{$contact->last_name}} @if(!empty($contact->nickname)) ({{$contact->nickname}}) @else @endif</h3>
                         </div>
                     </div>
                     <div class="row text-center">

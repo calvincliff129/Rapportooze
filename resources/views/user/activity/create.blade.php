@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>        
-        <div class="col col-lg-4" style="min-width: 27rem">
+        <div class="col col-lg-4">
             <form action="{{ route('activity.store', $contact) }}" method="POST">
             {{csrf_field()}}
         

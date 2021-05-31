@@ -83,7 +83,7 @@
                                     @endif
                                 </a>
                             </div>
-                            <h5 class="title">{{ auth()->user()->name }}</h5>
+                            <h4 class="title">{{ auth()->user()->name }}</h4>
                             <!-- <p class="description">
                                 {{ $user->email}}
                             </p> -->
