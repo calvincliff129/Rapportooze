@@ -17,16 +17,16 @@
                     <table class="table">
                         <thead>
                             <tr class="text-center alert alert-dismissible">
-                                <th style="border: 0; width: 40%;" scope="col">Contact Name</th>
+                                <th style="border: 0;" scope="col">Contact Name</th>
                                 <th style="border: 0;" scope="col">Description</th>
                             </tr>
                         </thead>
-                        <tbody class="">
+                        <tbody>
                             @foreach ($contacts as $contact)
                             <tr class="alert alert-primary">
-                                <td class="d-flex align-items-center" style="border: 0; border-radius: 5rem;">
+                                <td class="d-flex align-items-center" style="">
                                     <a href="{{ route('contact.show', $contact->id) }}">
-                                        <div class="img" style="min-width: 70px">
+                                        <div class="img">
                                             @if ($contact->avatar == null)
                                                 {!! Avatar::create($contact->first_name)->toSvg(); !!}
                                             @else
