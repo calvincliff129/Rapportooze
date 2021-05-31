@@ -155,7 +155,7 @@ class ContactController extends Controller
             ->withContact($contact)
             ->withAddress($address)
             ->withPet($pet)
-            ->withUrl($url)
+            ->withUrl($url);
     }
 
     /**
