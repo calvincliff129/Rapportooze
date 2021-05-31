@@ -45,7 +45,7 @@ class ReminderController extends Controller
         }
 
         return view('user.reminder.create')
-            ->withUrl($url);
+            ->withUrl($url)
             ->withContact($contact)
             ->withContacts($contacts)
             ->withActivity($activity);
@@ -116,7 +116,7 @@ class ReminderController extends Controller
         }
         
         return view('user.reminder.edit')
-            ->withUrl($url);
+            ->withUrl($url)
             ->withContact($contact)
             ->withReminder($reminder)
             ->withActivity($activity);

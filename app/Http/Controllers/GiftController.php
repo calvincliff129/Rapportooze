@@ -48,7 +48,7 @@ class GiftController extends Controller
         }
 
         return view('user.gift.create')
-            ->withUrl($url);
+            ->withUrl($url)
             ->withContact($contact)
             ->withContacts($contacts)
             ->withActivity($activity)
@@ -129,7 +129,7 @@ class GiftController extends Controller
         }
         
         return view('user.gift.edit')
-            ->withUrl($url);
+            ->withUrl($url)
             ->withContact($contact)
             ->withGift($gift)
             ->withActivity($activity)

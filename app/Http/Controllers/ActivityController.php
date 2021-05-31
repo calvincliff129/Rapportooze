@@ -36,7 +36,7 @@ class ActivityController extends Controller
         return view('user.activity.create')
             ->withContact($contact)
             // ->withContacts($contacts)
-            ->withUrl($url);
+            ->withUrl($url)
             ->withActivity($activity);
     }
 
@@ -94,7 +94,7 @@ class ActivityController extends Controller
         }
             
         return view('user.activity.edit')
-            ->withUrl($url);
+            ->withUrl($url)
             ->withContact($contact)
             ->withActivity($activity)
             ->withLastActivity($lastActivity);

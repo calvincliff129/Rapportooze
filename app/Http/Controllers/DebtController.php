@@ -47,7 +47,7 @@ class DebtController extends Controller
         }
 
         return view('user.debt.create')
-            ->withUrl($url);
+            ->withUrl($url)
             ->withContact($contact)
             ->withContacts($contacts)
             ->withCurrencies($currencies);
@@ -115,7 +115,7 @@ class DebtController extends Controller
         }
         
         return view('user.debt.edit')
-            ->withUrl($url);
+            ->withUrl($url)
             ->withContact($contact)
             ->withContacts($contacts)
             ->withDebt($debt)
