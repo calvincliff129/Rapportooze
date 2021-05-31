@@ -2,12 +2,11 @@
 
 @section('content')
 <hr class="dashed">
-<div class="container mt-5" style="max-width: 38rem; min-width: 29rem;">
-    <div class="row gx-4">
-        <div class="col-xl">
-            <div class="card text-white mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card my-4">
                 <div class="card-body">
-                    <div class="text-center title mb-4">
+                    <div class="text-center mb-4">
                         <p for="activity">Update contact's extra info section.</</p>
                     </div>
                     
@@ -16,25 +15,25 @@
                     {{csrf_field()}}
                     
                         <div class="card bg-dark">
-                            <div class="card-header title text-center"><h4>Contact details (Optional)</h4>
+                            <div class="card-header text-center"><h4>Contact details (Optional)</h4>
                             </div>
                             <hr class="bold">
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="email">Email</label>
-                                    <input type="email" class="form-control" value="{{ $contact->email }}" name="email" id="email" placeholder="">
+                                    <input type="email" class="form-control" value="{{ $contact->email }}" name="email" id="email">
                                 </div>
                                 <div class="mb-3">
                                     <label for="phone">Phone no</label>
-                                    <input type="text" class="form-control" value="{{ $contact->phone }}" name="phone" id="phone" placeholder="">
+                                    <input type="text" class="form-control" value="{{ $contact->phone }}" name="phone" id="phone">
                                 </div>
                                 <div class="mb-3">
                                     <label for="facebook">Facebook</label>
-                                    <input type="text" class="form-control" value="{{ $contact->facebook }}" name="facebook" id="facebook" placeholder="">
+                                    <input type="text" class="form-control" value="{{ $contact->facebook }}" name="facebook" id="facebook">
                                 </div>
                                 <div class="mb-3">
                                     <label for="twitter">Twitter</label>
-                                    <input type="text" class="form-control" value="{{ $contact->twitter }}" name="twitter" id="twitter" placeholder="">
+                                    <input type="text" class="form-control" value="{{ $contact->twitter }}" name="twitter" id="twitter">
                                 </div>
                             </div>
                         </div>
@@ -134,5 +133,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

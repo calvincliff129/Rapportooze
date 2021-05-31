@@ -18,7 +18,7 @@
                             <a href="{{ route('contact.show', $contact->id) }}"><i class="fas fa-angle-left fa-2x"></i></a>
                         </div>
                         <div style="margin-top: -2.5px;">
-                            <h3>Update {{$contact->first_name}}'s information</h3>
+                            <h3>Update {{$contact->first_name}}'s info</h3>
                         </div>
                     </div>
                     
