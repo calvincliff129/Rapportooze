@@ -9,6 +9,7 @@ use App\Models\Photo;
 use App\Models\Contact;
 use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use PragmaRX\Countries\Package\Countries;
 
 class GiftController extends Controller
@@ -35,8 +36,19 @@ class GiftController extends Controller
         $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
         $activity = Activity::where('contact_id', $contact->id)->orderBy('happened_at','desc')->first();
         $currencies = DB::table('currencies')->get();
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
 
         return view('user.gift.create')
+            ->withUrl($url);
             ->withContact($contact)
             ->withContacts($contacts)
             ->withActivity($activity)
@@ -105,8 +117,19 @@ class GiftController extends Controller
         // $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
         $activity = Activity::where('contact_id', $contact->id)->orderBy('happened_at','desc')->first();
         $currencies = DB::table('currencies')->get();
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
         
         return view('user.gift.edit')
+            ->withUrl($url);
             ->withContact($contact)
             ->withGift($gift)
             ->withActivity($activity)

@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Activity;
 use App\Models\Reminder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ReminderController extends Controller
 {
@@ -32,8 +33,19 @@ class ReminderController extends Controller
         $userId = Auth::user()->id;
         $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
         $activity = Activity::where('contact_id', $contact->id)->orderBy('happened_at','desc')->first();
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
 
         return view('user.reminder.create')
+            ->withUrl($url);
             ->withContact($contact)
             ->withContacts($contacts)
             ->withActivity($activity);
@@ -92,8 +104,19 @@ class ReminderController extends Controller
         $userId = Auth::user()->id;
         // $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
         $activity = Activity::where('contact_id', $contact->id)->orderBy('happened_at','desc')->first();
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
         
         return view('user.reminder.edit')
+            ->withUrl($url);
             ->withContact($contact)
             ->withReminder($reminder)
             ->withActivity($activity);

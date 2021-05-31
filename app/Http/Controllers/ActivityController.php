@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Contact;
 use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ActivityController extends Controller
 {
@@ -20,10 +21,22 @@ class ActivityController extends Controller
     {
         $userId = Auth::user()->id;
         $activity = Activity::where('contact_id', $contact->id)->orderBy('happened_at','desc')->first();
-
+        
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
+            
         return view('user.activity.create')
             ->withContact($contact)
             // ->withContacts($contacts)
+            ->withUrl($url);
             ->withActivity($activity);
     }
 
@@ -69,8 +82,19 @@ class ActivityController extends Controller
     {   
         $userId = Auth::user()->id;
         $lastActivity = Activity::where('contact_id', $contact->id)->orderBy('happened_at','desc')->first();
-        
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
+            
         return view('user.activity.edit')
+            ->withUrl($url);
             ->withContact($contact)
             ->withActivity($activity)
             ->withLastActivity($lastActivity);

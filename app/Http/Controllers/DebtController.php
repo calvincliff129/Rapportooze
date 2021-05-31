@@ -9,6 +9,7 @@ use App\Models\Debt;
 use App\Models\Contact;
 use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use PragmaRX\Countries\Package\Countries;
 
 class DebtController extends Controller
@@ -34,10 +35,19 @@ class DebtController extends Controller
         $userId = Auth::user()->id;
         $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
         $currencies = DB::table('currencies')->get();
-
-        // dd($currencies);
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
 
         return view('user.debt.create')
+            ->withUrl($url);
             ->withContact($contact)
             ->withContacts($contacts)
             ->withCurrencies($currencies);
@@ -93,8 +103,19 @@ class DebtController extends Controller
         $userId = Auth::user()->id;
         $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
         $currencies = DB::table('currencies')->get();
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
         
         return view('user.debt.edit')
+            ->withUrl($url);
             ->withContact($contact)
             ->withContacts($contacts)
             ->withDebt($debt)
