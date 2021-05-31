@@ -25,7 +25,7 @@
                             @if ($user->avatar == null)
                                 <div>{!! Avatar::create($user->name)->setFontSize(10)->setBorder(0, '#fff', 30)->setDimension(30)->toSvg(); !!}</div>
                             @else
-                                <img src="/uploads/avatars/{{ $user->avatar }}" alt="{{ __('Profile Photo') }}">
+                                <img src="{{ @$url }}" alt="{{ __('Profile Photo') }}">
                             @endif
                         </div>
                         <b class="caret d-none d-lg-block d-xl-block"></b>
