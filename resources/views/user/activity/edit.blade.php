@@ -48,32 +48,30 @@
             @include('alerts.success')
 
             <div class="card-body">
-                <div class="card-body mt-2">
-                    <div class="row">
-                        <div class="col-auto">
-                            <a href="{{ route('contact.show', $contact->id) }}"><i class="fas fa-angle-left fa-2x"></i></a>
-                        </div>
-                        <div style="margin-top: -2.5px;">
-                            <h3>Update activity</h3>
-                        </div>
+                <div class="row">
+                    <div class="col-auto">
+                        <a href="{{ route('contact.show', $contact->id) }}"><i class="fas fa-angle-left fa-2x"></i></a>
                     </div>
-                    
-                    <div class="mb-3">
-                        <label for="summary">Activity name</label>
-                        <input type="text" class="form-control{{ $errors->has('summary') ? ' is-invalid' : '' }}" value="{{ $activity->summary }}" name="summary" id="summary" placeholder="What exciting activity have you done together?">
+                    <div style="margin-top: -2.5px;">
+                        <h3>Update activity</h3>
                     </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="summary">Activity name</label>
+                    <input type="text" class="form-control{{ $errors->has('summary') ? ' is-invalid' : '' }}" value="{{ $activity->summary }}" name="summary" id="summary" placeholder="What exciting activity have you done together?">
+                </div>
 
-                    <div class="row">
-                        <div class="col mt-2 mb-3" id="">
-                            <label for="happened_at">Activity date</label>
-                            <input type="text" class="form-control{{ $errors->has('summary') ? ' is-invalid' : '' }} datepicker" value="@if (!empty( $activity->happened_at )) {{ date('j F Y', strtotime( $activity->happened_at )) }} @endif" name="happened_at" placeholder="When was it?">
-                        </div>
+                <div class="row">
+                    <div class="col mt-2 mb-3" id="">
+                        <label for="happened_at">Activity date</label>
+                        <input type="text" class="form-control{{ $errors->has('summary') ? ' is-invalid' : '' }} datepicker" value="@if (!empty( $activity->happened_at )) {{ date('j F Y', strtotime( $activity->happened_at )) }} @endif" name="happened_at" placeholder="When was it?">
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label for="detail">Story</label>
-                        <textarea type="text" class="form-control rounded px-2" value="{{ $activity->detail }}" name="detail" id="detail" placeholder="Write your thoughts on the activty (Optional)">{{ $activity->detail }}</textarea>
-                    </div>
+                <div class="mb-3">
+                    <label for="detail">Story</label>
+                    <textarea type="text" class="form-control rounded px-2" value="{{ $activity->detail }}" name="detail" id="detail" placeholder="Write your thoughts on the activty (Optional)">{{ $activity->detail }}</textarea>
                 </div>
             </div>
         </div>
@@ -88,5 +86,4 @@
         </form>
     </div>
 </div>
-
 @endsection
