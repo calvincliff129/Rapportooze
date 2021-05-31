@@ -9,6 +9,8 @@
         <div class="col-lg">
             <form action="{{route('contact.store')}}" method="POST">
                 {{csrf_field()}}
+
+                @include('alerts.success')
         
             <div class="card" style="max-width: 38rem; min-width: 20rem;">
                 <div class="card-body mt-2">

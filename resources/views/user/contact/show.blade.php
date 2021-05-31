@@ -1,8 +1,8 @@
 @extends('layouts.user', ['page' => __('Contact'), 'pageSlug' => 'contact'])
 
 @section('content')
-<div class="d-flex justify-content-lg-center">
-    <div class="col" style="max-width: 45rem;">
+<div class="row justify-content-center">
+    <div class="col-md-6">
         <div class="card card-user">
             <div class="card-body">
                 <div class="text-right">
@@ -60,7 +60,7 @@
     </div>  
 </div>
 <hr class="dashed">
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
     <div class="col-md-4">
         <div class="card">
             <div class="card-body">

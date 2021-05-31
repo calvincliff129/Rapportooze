@@ -28,7 +28,7 @@
                                 </div>
                                 
                                 <div class="col-xl mb-5">
-                                    <h2 class="text-center"><strong>{{ $user->name }}</strong>'s <br> profile picture</h2>
+                                    <h3 class="text-center"><strong>{{ $user->name }}</strong>'s <br> profile picture</h3>
                                     <label for="avatar" name="avatar" id="avatar" class="custom-file-upload">
                                         <!-- <span id="file-selected"></span> -->
                                         Upload avatar image

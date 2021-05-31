@@ -18,13 +18,13 @@
                         <thead>
                             <tr class="text-center alert alert-dismissible">
                                 <th style="border: 0;" scope="col">Contact Name</th>
-                                <th style="border: 0;" scope="col">Description</th>
+                                <th class="d-sm-none d-md-block d-none" style="border: 0;" scope="col">Description</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($contacts as $contact)
                             <tr class="alert alert-primary">
-                                <td class="d-flex align-items-center" style="">
+                                <td class="pull-left" style="">
                                     <a href="{{ route('contact.show', $contact->id) }}">
                                         <div class="img">
                                             @if ($contact->avatar == null)
@@ -40,7 +40,7 @@
                                     </a> 
                                 </td>
                                 <td style="border: 0;">
-                                    <a href="{{ route('contact.show', $contact->id) }}">
+                                    <a class="d-sm-none d-md-block d-none" href="{{ route('contact.show', $contact->id) }}">
                                         {{$contact->description}}
                                     </a>
                                 </td>
