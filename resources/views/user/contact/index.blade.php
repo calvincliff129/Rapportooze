@@ -30,7 +30,7 @@
                                             @if ($contact->avatar == null)
                                                 {!! Avatar::create($contact->first_name)->toSvg(); !!}
                                             @else
-                                                <img url="/uploads/avatars/{{ $contact->avatar }}" class="border bg-primary border-primary" style="padding: .125rem; width: 55px; height: 55px; float:left; border-radius:35%;">
+                                                <img url="{{ Storage::disk('s3')->temporaryUrl('avatars/'.$contact->avatar, now()->addMinutes(60)) }}" class="border bg-primary border-primary" style="padding: .125rem; width: 55px; height: 55px; float:left; border-radius:35%;">
                                             @endif
                                         </div>
                                         <div class="pl-3 email">

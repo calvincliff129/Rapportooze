@@ -40,7 +40,6 @@ class ContactController extends Controller
         $userId = Auth::user()->id;
         $contacts = Contact::where('user_id',$userId)->orderBy('first_name', 'asc')->paginate(10);
         $contactsCount = Contact::where('user_id', $userId)->count();
-        $imagePath = public_path('/uploads/avatars/');
         
         return view('user.contact.index')
             ->withContacts($contacts)
@@ -136,6 +135,17 @@ class ContactController extends Controller
             
         }
 
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
+
         return view('user.contact.show')
             ->withContact($contact)
             ->withAge($age)
@@ -148,6 +158,7 @@ class ContactController extends Controller
             ->withContact($contact)
             ->withAddress($address)
             ->withPet($pet)
+            ->withUrl($url)
             ->withImagePath($imagePath);
     }
 
@@ -345,19 +356,17 @@ class ContactController extends Controller
     {
         $userId = Auth::user()->id;
         $contact = Contact::where('user_id', $userId)->find($contact->id);
-        // $imagePath = public_path('/uploads/avatars/').$contact->avatar;
         
         $path = 'avatars';
         if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
         {
             $url = Storage::disk('s3')->temporaryUrl(
                 $path.'/'.$contact->avatar,
-                now()->addMinutes(30)
+                now()->addMinutes(60)
             );
         } else {
             $url = 0;
         }
-        // dd($url);
         
         return view('user.contact.avatar')
                 ->withUrl($url)

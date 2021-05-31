@@ -21,7 +21,7 @@
                                     @if ($contact->avatar == null)
                                         <div>{!! Avatar::create($contact->first_name)->setFontSize(40)->setBorder(0, '#fff', 45)->setDimension(114)->toSvg(); !!}</div>
                                     @else
-                                        <img src="/uploads/avatars/{{ $contact->avatar }}" style="width: 120px; height: 120px; float:left; border-radius:30%; margin-right:25px;">
+                                        <img src="{{ @$url }}" style="width: 120px; height: 120px; float:left; border-radius:30%; margin-right:25px;">
                                     @endif
                                 </div>
                             </a>
