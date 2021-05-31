@@ -3,7 +3,7 @@
 @section('content')
 <div class="d-flex justify-content-center">
     <div class="row container-fluid d-flex justify-content-center" style="margin-top: 6%;">
-        <div class="col-lg-auto">
+        <div class="col-lg-6">
             <div class="card card-user">
                 <div class="card-body">
                     <p class="card-text">
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>        
-        <div class="col col-lg-4">
+        <div class="col-lg-6">
             <form action="{{ route('activity.store', $contact) }}" method="POST">
             {{csrf_field()}}
         
@@ -63,14 +63,13 @@
                     <div class="row">
                         <div class="col mt-2 mb-3" id="">
                             <label for="happened_at">Activity date</label>
-                            <input type="text" class="form-control datepicker" value="" name="happened_at" placeholder="When was it?">
+                            <input type="text" class="form-control datepicker" name="happened_at" placeholder="When was it?">
                         </div>
-
                     </div>
 
                     <div class="mb-3">
                         <label for="detail">Story</label>
-                        <textarea type="text" class="form-control rounded px-2" value="" name="detail" id="detail" placeholder="Write your thoughts on the activty (Optional)"></textarea>
+                        <textarea type="text" class="form-control rounded px-2" name="detail" id="detail" placeholder="Write your thoughts on the activty (Optional)"></textarea>
                     </div>
                 </div>
             </div>
