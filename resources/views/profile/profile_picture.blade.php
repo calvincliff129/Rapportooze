@@ -23,7 +23,7 @@
                                     @if ($user->avatar == null)
                                         <div>{!! Avatar::create($user->name)->setFontSize(70)->setBorder(0, '#fff', 30)->setDimension(250)->toSvg(); !!}</div>
                                     @else
-                                        <img src="/uploads/avatars/{{ $user->avatar }}" style="width: 250px; height: 250px; float:left; border-radius:15%;">
+                                        <img src="{{ @$url }}" style="width: 250px; height: 250px; float:left; border-radius:15%;">
                                     @endif
                                 </div>
                                 

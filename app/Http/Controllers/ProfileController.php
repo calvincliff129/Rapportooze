@@ -21,10 +21,20 @@ class ProfileController extends Controller
     public function edit()
     {
         $user = auth()->user();
-        $imagePath = public_path('/uploads/avatars/').$user->avatar;
+        $path = 'user_avatars';
+
+        if (Storage::disk('s3')->exists($path.'/'.$user->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$user->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
 
         return view('profile.edit')
-                    ->withImagePath($imagePath)
+                    ->withUrl($url)
                     ->withUser($user);
     }
 
@@ -57,10 +67,20 @@ class ProfileController extends Controller
     public function chooseAvatar()
     {
         $user = auth()->user();
-        $imagePath = public_path('/uploads/avatars/').$user->avatar;
+        
+        $path = 'user_avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$user->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$user->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
 
         return view('profile.profile_picture')
-                    ->withImagePath($imagePath)
+                    ->withUrl($url)
                     ->withUser($user);
     }
 
@@ -69,14 +89,20 @@ class ProfileController extends Controller
         $this->validateWith([
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
-
-    	// Handle avatar upload
+        
         $user = auth()->user();
+    	// Handle avatar upload
     	if($request->hasFile('avatar')){
-    		$avatar = $request->file('avatar');
-    		$filename = time() . '.' . $avatar->getClientOriginalExtension();
-    		Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
-            
+
+            $avatar = $request->file('avatar');
+            $path = 'user_avatars';
+            $filename = time().'.'.$request->avatar->getClientOriginalExtension();
+            $avatar->storePubliclyAs(
+                $path,
+                $filename,
+                's3'
+            );
+    		
     		$user->avatar = $filename;
     		$user->save();
     	}
@@ -88,13 +114,10 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
 
-        if(\File::exists(public_path('/uploads/avatars/').$user->avatar)){
-
-            \File::delete(public_path('/uploads/avatars/').$user->avatar);
-            $user->avatar = null;
-            $user->save();
-        
-        }
+        $path = 'user_avatars';
+        Storage::disk('s3')->delete($path.'/'.$user->avatar);
+        $user->avatar = null;
+        $user->save();
         
         return redirect()->route('user_avatar.select');
     }

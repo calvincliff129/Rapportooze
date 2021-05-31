@@ -378,14 +378,10 @@ class ContactController extends Controller
         $userId = Auth::user()->id;
     	// Handle avatar upload
     	if($request->hasFile('avatar')){
-    		// $avatar = $request->file('avatar');
-    		// $filename = time() . '.' . $avatar->getClientOriginalExtension();
-    		// Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
 
             $avatar = $request->file('avatar');
             $path = 'avatars';
             $filename = time().'.'.$request->avatar->getClientOriginalExtension();
-            // Storage::disk('s3')->put($path, $avatar);
             $avatar->storePubliclyAs(
                 $path,
                 $filename,
@@ -410,13 +406,6 @@ class ContactController extends Controller
 
         $contact->avatar = null;
         $contact->save();
-
-        // if(\File::exists(public_path('/uploads/avatars/').$contact->avatar)){
-
-        //     \File::delete(public_path('/uploads/avatars/').$contact->avatar);
-        //     $contact->avatar = null;
-        //     $contact->save();
-        // }
         
         return redirect()->route('avatar.select', $contact->id);
     }

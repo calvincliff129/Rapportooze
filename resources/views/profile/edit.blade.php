@@ -79,7 +79,7 @@
                                     @if ($user->avatar == null)
                                         <div class="avatar">{!! Avatar::create($user->name)->setFontSize(50)->setBorder(0, '#fff', 60)->setDimension(114)->toSvg(); !!}</div>
                                     @else
-                                        <img class="avatar" src="/uploads/avatars/{{ $user->avatar }}">
+                                        <img class="avatar" src="{{ @$url }}">
                                     @endif
                                 </a>
                             </div>
