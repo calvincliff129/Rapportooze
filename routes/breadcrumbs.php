@@ -5,6 +5,7 @@ use App\Models\Gift;
 use App\Models\Contact;
 use App\Models\Activity;
 use App\Models\Reminder;
+use App\Models\LifeEvent;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
@@ -40,13 +41,13 @@ Breadcrumbs::for('contact.show', function (BreadcrumbTrail $trail, Contact $cont
 // Home > Contact > [Category]
 Breadcrumbs::for('contact.edit', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('contact.show', $id);
-    $trail->push('Edit Contact', route('contact.edit', $id));
+    $trail->push('Edit Info', route('contact.edit', $id));
 });
 
 // Home > Contact > Extra
 Breadcrumbs::for('extra.edit', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('contact.show', $id);
-    $trail->push('Edit Info', route('extra.edit', $id));
+    $trail->push('Edit Extras', route('extra.edit', $id));
 });
 
 // Contact > Activity
@@ -107,4 +108,16 @@ Breadcrumbs::for('avatar.select', function ($trail, $id) {
 Breadcrumbs::for('user_avatar.select', function ($trail) {
     $trail->parent('profile.edit');
     $trail->push('Your Avatar', route('user_avatar.select'));
+});
+
+// Contact > Life event
+Breadcrumbs::for('life-event.create', function (BreadcrumbTrail $trail, Contact $contact) {
+    $trail->parent('contact.show', $contact);
+    $trail->push('Life Event', route('life-event.create', $contact));
+});
+
+// Contact > Edit Life event
+Breadcrumbs::for('life-event.edit', function (BreadcrumbTrail $trail, Contact $contact, LifeEvent $lifeEvent) {
+    $trail->parent('contact.show', $contact);
+    $trail->push('Edit Life Event', route('life-event.edit', [$contact, $lifeEvent]));
 });
