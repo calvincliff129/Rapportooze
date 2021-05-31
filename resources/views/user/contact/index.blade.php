@@ -1,10 +1,10 @@
 @extends('layouts.user', ['page' => __('Contact'), 'pageSlug' => 'contact'])
 
 @section('content')
-<div class="row">
-    <div class="col-md-12">
-        <div class="container card">
-            <div class="d-flex flex-row justify-content-between card-body">
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="d-flex justify-content-between card-body">
                 <div>
                     <h4 class="card-title"><strong>You have {{ $contactsCount }} Contact(s)</strong><small> ~Listed by alphabetical order~</small></h4>
                 </div>
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="card-body table-card">
-                <div class="table-responsive-xl table-hover">
+                <div class="table-responsive table-hover">
                     <table class="table">
                         <thead>
                             <tr class="text-center alert alert-dismissible">

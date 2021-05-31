@@ -52,7 +52,7 @@ class ActivityController extends Controller
         $this->validateWith([
             'summary' => 'required|string|max:255',
             'detail' => 'nullable|max:255',
-            'happened_at' => 'nullable|date',
+            'happened_at' => 'required|date',
         ]);
 
         $userId = Auth::user()->id;
