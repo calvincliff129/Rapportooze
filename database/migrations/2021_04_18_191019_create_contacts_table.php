@@ -215,7 +215,6 @@ class CreateContactsTable extends Migration
             $table->id('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('contact_id');
-            $table->unsignedBigInteger('reminder_id');
             $table->string('name')->nullable();
             $table->mediumText('note')->nullable();
             $table->dateTime('happened_at');
@@ -226,7 +225,6 @@ class CreateContactsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('contact_id')->references('id')->on('contacts')->onDelete('cascade');
-            $table->foreign('reminder_id')->references('id')->on('reminders')->onDelete('cascade');
         });
 
         Schema::create('pet_types', function (Blueprint $table) {
