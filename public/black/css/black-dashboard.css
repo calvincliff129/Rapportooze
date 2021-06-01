@@ -2281,6 +2281,9 @@ td a {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
+  .sm-text {
+    font-size: 0.7rem;
+  }
   .table-responsive-sm>.table-bordered {
     border: 0;
   }
@@ -2297,6 +2300,9 @@ td a {
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
+  /* .sm-text {
+    font-size: 0.7rem;
+  } */
   .table-responsive-md>.table-bordered {
     border: 0;
   }
