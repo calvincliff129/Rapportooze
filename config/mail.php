@@ -88,6 +88,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Rapportooze'),
     ],
 
+    'reply_to' => ['address' => 'calvinnwoohaa1@gmail.com', 'name' => 'Rapportooze'],
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
