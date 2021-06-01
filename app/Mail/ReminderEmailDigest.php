@@ -11,7 +11,7 @@ class ReminderEmailDigest extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    private $reminders;
+    public $reminders;
 
     /**
      * Create a new message instance.

@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Mailgun\Mailgun;
 use App\Models\User;
 use Carbon\Carbon;
 use App\Models\Reminder;
@@ -74,6 +75,6 @@ class SendReminderEmails extends Command
     {
         $user = User::find($userId);
 
-        Mail::to($user)->send(new ReminderEmailDigest($reminders));
+        Mail::to($user)->queue(new ReminderEmailDigest($reminders));
     }
 }
