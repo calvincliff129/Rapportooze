@@ -137,9 +137,9 @@
                             <a href="{{ route('contact.show', $last_updated->id) }}">
                                 <div class="card-body img">
                                     @if ($last_updated->avatar == null)
-                                        {!! Avatar::create($last_updated->first_name)->setFontSize(30)->setBorder(3, '#c352eb', 30)->setDimension(80)->toSvg(); !!}
+                                        {!! Avatar::create($last_updated->first_name)->setFontSize(30)->setBorder(2, '#c352eb', 30)->setDimension(80)->toSvg(); !!}
                                     @else
-                                        <img src="{{ Storage::disk('s3')->temporaryUrl('avatars/'.$last_updated->avatar, now()->addMinutes(60)) }}" class="border bg-primary border-primary" style="width: 80px; height: 80px; float:left; border-radius:30%;">
+                                        <img src="{{ Storage::disk('s3')->temporaryUrl('avatars/'.$last_updated->avatar, now()->addMinutes(60)) }}" class="border bg-primary border-primary" style="width: 78px; height: 78px; float:left; border-radius:30%;">
                                     @endif
                                 </div>
                             </a> 
