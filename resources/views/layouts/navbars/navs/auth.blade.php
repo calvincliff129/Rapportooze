@@ -36,7 +36,7 @@
                             <a href="{{ route('home') }}" class="nav-item dropdown-item">{{ __('Dashboard') }}</a>
                         </li>
                         <li class="nav-link">
-                            <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('Profile') }}</a>
+                            <a href="{{ route('profile.edit') }}" class="nav-item dropdown-item">{{ __('User Profile') }}</a>
                         </li>
                         <!-- <li class="nav-link">
                             <a href="#" class="nav-item dropdown-item">{{ __('Settings') }}</a>
