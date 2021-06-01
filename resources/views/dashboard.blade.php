@@ -7,7 +7,7 @@
             <div class="card-body mb-3">
                 <div class="container text-center">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-3" style="min-width=3rem">
                             <p class="card-title mb-4">Contacts</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $contactsCount }}</strong>
@@ -25,7 +25,7 @@
                                 <strong>{{ $giftsCount }}</strong>
                             </span>
                         </div>
-                        <div class="col-3">
+                        <div class="col-3" style="min-width=3rem">
                             <p class="card-title mb-4">Activities</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $activitiesCount }}</strong>
