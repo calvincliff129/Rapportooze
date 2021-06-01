@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Contact;
 use App\Models\LifeEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LifeEventController extends Controller
 {
@@ -105,7 +106,7 @@ class LifeEventController extends Controller
         } else {
             $url = 0;
         }
-        
+
         return view('user.life_event.edit')
             ->withUrl($url)
             ->withContact($contact)
