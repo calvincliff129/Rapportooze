@@ -132,14 +132,14 @@
                 <p class="card-text text-center title">Last updated profile . . .</p>
                 <hr class="bold mb-3">
                 @if (!$contacts->isEmpty())
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-around">
                         @foreach ($lastUpdated as $last_updated)
                             <a href="{{ route('contact.show', $last_updated->id) }}">
-                                <div class="card-body px-5">
+                                <div class="card-body img">
                                     @if ($last_updated->avatar == null)
                                         {!! Avatar::create($last_updated->first_name)->setFontSize(30)->setBorder(3, '#c352eb', 30)->setDimension(80)->toSvg(); !!}
                                     @else
-                                        <img class="" src="{{ Storage::disk('s3')->temporaryUrl('avatars/'.$last_updated->avatar, now()->addMinutes(60)) }}" class="border bg-primary border-primary" style="padding: .125rem; width: 60px; height: 60px; float:left; border-radius:30%;">
+                                        <img src="{{ Storage::disk('s3')->temporaryUrl('avatars/'.$last_updated->avatar, now()->addMinutes(60)) }}" class="border bg-primary border-primary" style="width: 70px; height: 70px; float:left; border-radius:30%;">
                                     @endif
                                 </div>
                             </a> 
