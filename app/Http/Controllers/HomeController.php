@@ -38,6 +38,7 @@ class HomeController extends Controller
         $month = Carbon::now();
         $monthTwo = Carbon::now()->addMonths();
         $monthThree = Carbon::now()->addMonths(2);
+        $lastUpdated = Contact::where('user_id', $userId)->orderBy('updated_at', 'desc')->paginate(3);
 
         $reminderMonth = Reminder::where('user_id', $userId)->whereMonth('reminder_date', $month->month)
                                     ->orderBy('reminder_date', 'desc')
@@ -55,6 +56,7 @@ class HomeController extends Controller
                                     
         return view('dashboard')
             ->withContacts($contacts)
+            ->withLastUpdated($lastUpdated)
             ->withContactsCount($contactsCount)
             ->withDebtsCount($debtsCount)
             ->withGiftsCount($giftsCount)
