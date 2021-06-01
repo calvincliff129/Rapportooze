@@ -126,7 +126,7 @@
     </div>
     <!-- <div class="col">
     </div> -->
-    <div class="col-md-4">
+    <div class="col-md-4 order-first order-md-0">
         <div class="card mb-5" style="border-radius: 1rem;">
             <div class="card-body">
                 <p class="card-text text-center title">Last updated profile . . .</p>
