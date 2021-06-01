@@ -14,7 +14,7 @@
                     <div class="col-auto mb-1">
                         <a href="{{ route('avatar.select', $contact->id) }}">
                             @if ($contact->avatar == null)
-                                <div class="avatar-debt">{!! Avatar::create($contact->first_name)->setFontSize(50)->setBorder(0, '#fff', 60)->setDimension(114)->toSvg(); !!}</div>
+                                <div class="avatar-debt">{!! Avatar::create($contact->first_name)->toSvg(); !!}</div>
                             @else
                                 <img class="avatar-debt" src="{{ @$url }}">
                             @endif

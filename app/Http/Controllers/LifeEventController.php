@@ -30,8 +30,19 @@ class LifeEventController extends Controller
     {
         $userId = Auth::user()->id;
         $contacts = Contact::where('user_id', '=', $userId)->where('id', '!=', $contact->id)->get();
-
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
+            
         return view('user.life_event.create')
+            ->withUrl($url)
             ->withContact($contact)
             ->withContacts($contacts);
     }
@@ -84,7 +95,19 @@ class LifeEventController extends Controller
      */
     public function edit(Contact $contact, LifeEvent $lifeEvent)
     {
+        $path = 'avatars';
+        if (Storage::disk('s3')->exists($path.'/'.$contact->avatar))
+        {
+            $url = Storage::disk('s3')->temporaryUrl(
+                $path.'/'.$contact->avatar,
+                now()->addMinutes(60)
+            );
+        } else {
+            $url = 0;
+        }
+        
         return view('user.life_event.edit')
+            ->withUrl($url)
             ->withContact($contact)
             ->withLifeEvent($lifeEvent);
     }
