@@ -2,30 +2,30 @@
 
 @section('content')
 <div class="row justify-content-center">
-    <div class="col-md-7">
+    <div class="col-md-6">
         <div class="card" style="border-radius: 1rem;">
             <div class="card-body mb-3">
                 <div class="container text-center">
-                    <div class="row">
-                        <div class="col-3" style="min-width=3rem">
+                    <div class="row justify-content-center">
+                        <div class="col-2">
                             <p class="card-title mb-4">Contacts</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $contactsCount }}</strong>
                             </span>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <p class="card-title mb-4">Debts</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $debtsCount }}</strong>
                             </span>
                         </div>
-                        <div class="col-3">
+                        <div class="col-2">
                             <p class="card-title mb-4">Gifts</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $giftsCount }}</strong>
                             </span>
                         </div>
-                        <div class="col-3" style="min-width=3rem">
+                        <div class="col-2">
                             <p class="card-title mb-4">Activities</p>
                             <span class="bg-success border-0 rounded p-1 px-4">
                                 <strong>{{ $activitiesCount }}</strong>
