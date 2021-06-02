@@ -102,6 +102,6 @@ $(function () {
 
 // Loader
 $(document).ready(function(){
-    document.getElementByClass(".loader-wrapper").fadeOut("slow");
+    $(".loader-wrapper").fadeOut("slow");
 });
 // End loader
