@@ -30,9 +30,6 @@
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
-            <div class="loader-wrapper">
-                <span class="loader"><span class="loader-inner"></span></span>
-            </div>
             <div class="wrapper">
                     @include('layouts.navbars.sidebarUser')
                 <div class="main-panel">
@@ -63,7 +60,9 @@
             </div>
         @endauth
 
-        
+        <!-- <div class="loader-wrapper">
+            <span class="loader"><span class="loader-inner"></span></span>
+        </div> -->
         
         <script src="{{ asset('black') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('black') }}/js/core/popper.min.js"></script>
