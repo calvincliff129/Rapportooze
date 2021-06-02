@@ -99,3 +99,9 @@ $(function () {
 window.addEventListener('scroll', (event) => {
     console.log('Scrolled');
 });
+
+// Loader
+$(window).on("load",function(){
+    $("loader-wrapper").fadeOut("slow");
+});
+// End loader
