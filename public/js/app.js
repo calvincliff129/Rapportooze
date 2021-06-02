@@ -102,6 +102,6 @@ window.addEventListener('scroll', (event) => {
 
 // Loader
 $(window).on("load",function(){
-    $("loader-wrapper").fadeOut("slow");
+    $(".loader-wrapper").fadeOut("slow");
 });
 // End loader
