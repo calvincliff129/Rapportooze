@@ -96,12 +96,12 @@ $(function () {
 // End of dynamic timeline
 
 // Retain scroll position after page refresh
-window.addEventListener('scroll', (event) => {
-    console.log('Scrolled');
-});
+// window.addEventListener('scroll', (event) => {
+//     console.log('Scrolled');
+// });
 
 // Loader
-$(window).on("load",function(){
-    $(".loader-wrapper").fadeOut("slow");
+$(document).ready(function(){
+    document.getElementByClass(".loader-wrapper").fadeOut("slow");
 });
 // End loader
