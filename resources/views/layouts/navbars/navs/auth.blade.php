@@ -44,12 +44,11 @@
                         @if ($user->hasRole('administrator'))
                             <li class="nav-link">
                                 <a href="{{route('manage.dashboard')}}" class="nav-item dropdown-item">{{ __('Administration') }}</a>
-                            </li>
-                        @else
-                            <li class="nav-link">
-                                <a href="{{route('home.help')}}" target="_blank" class="nav-item dropdown-item">{{ __('Help') }}</a>
-                            </li>
+                            </li> 
                         @endif
+                        <li class="nav-link">
+                            <a href="{{route('home.help')}}" target="_blank" class="nav-item dropdown-item">{{ __('Help') }}</a>
+                        </li>
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">
                             <a href="{{ route('logout') }}" class="nav-item dropdown-item" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>

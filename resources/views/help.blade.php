@@ -87,7 +87,7 @@
                                             <p>3. Edit the contact's info.</p>
                                             <p>4. Click Save.</p>      
                                             <p>5. To add and edit extra info.</p>   
-                                            <p>6. At the left card, click on the <i class="fas fa-pen-square fa-2x"></i> icon.</p> 
+                                            <p>6. At the left card, click on the <i class="fas fa-pen-square"></i> icon.</p> 
                                             <p>7. Add or edit the contact's extra info.</p>
                                             <p>8. Click Update.</p>                            
                                         </div>
@@ -103,7 +103,7 @@
                                     </div>
                                     <div id="collapseThree_child" class="collapse" aria-labelledby="headingThree_child" data-parent="#accordion_child_1">
                                         <div class="card-body">
-                                            <p>1. On the left bottom-most, click Delete contact.</p>
+                                            <p>1. On the bottom-most right, click Delete contact.</p>
                                         </div>
                                     </div>
                                 </div>
