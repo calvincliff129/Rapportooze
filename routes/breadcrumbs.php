@@ -20,6 +20,11 @@ Breadcrumbs::for('contact.index', function (BreadcrumbTrail $trail) {
     $trail->push('Contacts', route('contact.index'));
 });
 
+Breadcrumbs::for('home.help', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Help', route('home.help'));
+});
+
 // Home > [profile]
 Breadcrumbs::for('profile.edit', function (BreadcrumbTrail $trail) {
     $trail->parent('home');

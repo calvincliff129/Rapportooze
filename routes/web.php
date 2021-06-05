@@ -51,5 +51,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/contact/{contact}/debt', 'App\Http\Controllers\DebtController')->except(['index', 'show']);
     Route::resource('/contact/{contact}/life-event', 'App\Http\Controllers\LifeEventController');
     Route::resource('/timeline', 'App\Http\Controllers\TimelineController');
+
+    // Help page
+    Route::get('home/help', ['as' => 'home.help', 'uses' => 'App\Http\Controllers\HomeController@helpPage']);
 });
 

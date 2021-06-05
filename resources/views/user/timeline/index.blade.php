@@ -33,7 +33,7 @@
                                     <form action="{{ route('life-event.destroy', [$contact->id, $lifeEvent->id]) }}" method="POST">
                                         {{ method_field('DELETE') }}
                                         {{ csrf_field() }}
-                                        <button class="btn btn-warning btn-link"><small>Delete life event</small></button>
+                                        <button class="btn btn-warning btn-link"><small>Delete</small></button>
                                     </form>
                                 </div>
                             </div>

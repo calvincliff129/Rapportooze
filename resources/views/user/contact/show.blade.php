@@ -6,7 +6,7 @@
         <div class="card card-user">
             <div class="card-body">
                 <div class="text-right">
-                    <a href="{{route('contact.edit', $contact->id)}}" class="btn btn-sm btn-success">Edit User</a>
+                    <a href="{{route('contact.edit', $contact->id)}}" class="btn btn-sm btn-success">Edit Contact</a>
                 </div>
                 <p class="card-text">
                     <div class="author">

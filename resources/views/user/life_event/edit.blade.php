@@ -77,7 +77,7 @@
                 </div>
             </div>
             
-            <div class="col-xl-auto d-flex align-items-center">
+            <div class="col-xl-auto d-flex justify-content-center">
                 <div class="mb-2 mt-auto">
                     <button class="btn btn-primary btn-round">Update life event</button>
                 </div>

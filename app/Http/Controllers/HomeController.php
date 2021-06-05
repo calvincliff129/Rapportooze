@@ -69,4 +69,11 @@ class HomeController extends Controller
             ->withReminderMonthThree($reminderMonthThree)
             ->withRecentOccassions($recentOccassions);
     }
+
+    public function helpPage()
+    {
+        $user = auth()->user();
+
+        return view('help')->withUser($user);
+    }
 }

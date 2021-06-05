@@ -41,9 +41,15 @@
                         <!-- <li class="nav-link">
                             <a href="#" class="nav-item dropdown-item">{{ __('Settings') }}</a>
                         </li> -->
-                        <li class="nav-link">
-                            <a href="{{route('manage.dashboard')}}" class="nav-item dropdown-item">{{ __('Administration') }}</a>
-                        </li>
+                        @if ($user->hasRole('administrator'))
+                            <li class="nav-link">
+                                <a href="{{route('manage.dashboard')}}" class="nav-item dropdown-item">{{ __('Administration') }}</a>
+                            </li>
+                        @else
+                            <li class="nav-link">
+                                <a href="{{route('home.help')}}" target="_blank" class="nav-item dropdown-item">{{ __('Help') }}</a>
+                            </li>
+                        @endif
                         <li class="dropdown-divider"></li>
                         <li class="nav-link">
                             <a href="{{ route('logout') }}" class="nav-item dropdown-item" onclick="event.preventDefault();  document.getElementById('logout-form').submit();">{{ __('Log out') }}</a>
