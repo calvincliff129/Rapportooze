@@ -24,11 +24,11 @@
             <div class="card-body bg-help d-flex flex-row justify-content-center">
                 <div class="navbar-wrapper">
                     <!-- <div class="navbar-toggle d-inline">
-                        <button type="button" class="navbar-toggler">
+                        <a type="a" class="navbar-toggler">
                             <span class="navbar-toggler-bar bar1"></span>
                             <span class="navbar-toggler-bar bar2"></span>
                             <span class="navbar-toggler-bar bar3"></span>
-                        </button>
+                        </a>
                     </div> -->
                     <a class="navbar-brand" href="{{route('home')}}">
                         <img src="{{asset('/image/Rappportooze_R_no_background.png')}}" style="width:30px" alt="Rapportooze Logo">
@@ -42,13 +42,13 @@
                     <h3 class="text-center">Using Rapportooze</h3>
 
 
-                    <div id="accordion">
+                    <div class="acc-panel" id="accordion">
                     <div class="card">
                         <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <h4>Contact</h4> 
-                            </button>
+                            <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h4 class="text-left">Contact</h4> 
+                            </a>
                         </h5>
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
@@ -57,9 +57,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="headingOne_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne_child" aria-expanded="true" aria-controls="collapseOne_child">
-                                        <h4>Add a contact</h4> 
-                                        </button>
+                                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne_child" aria-expanded="true" aria-controls="collapseOne_child">
+                                            <h4 class="text-left">Add a contact</h4> 
+                                        </a>
                                     </h5>
                                     </div>
 
@@ -75,9 +75,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="headingTwo_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo_child" aria-expanded="false" aria-controls="collapseTwo_child">
-                                        <h4>View and edit a contact</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo_child" aria-expanded="false" aria-controls="collapseTwo_child">
+                                        <h4 class="text-left">View and edit a contact</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseTwo_child" class="collapse" aria-labelledby="headingTwo_child" data-parent="#accordion_child_1">
@@ -96,9 +96,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="headingThree_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree_child" aria-expanded="false" aria-controls="collapseThree_child">
-                                        <h4>Delete a contact</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree_child" aria-expanded="false" aria-controls="collapseThree_child">
+                                        <h4 class="text-left">Delete a contact</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseThree_child" class="collapse" aria-labelledby="headingThree_child" data-parent="#accordion_child_1">
@@ -114,9 +114,9 @@
                     <div class="card">
                         <div class="card-header" id="headingTwo">
                         <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <h4>Activity</h4> 
-                            </button>
+                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <h4 class="text-left">Activity</h4> 
+                            </a>
                         </h5>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
@@ -125,9 +125,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseTwo_headingOne_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo_collapseOne_child" aria-expanded="true" aria-controls="collapseTwo_collapseOne_child">
-                                        <h4>Add an activity</h4> 
-                                        </button>
+                                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo_collapseOne_child" aria-expanded="true" aria-controls="collapseTwo_collapseOne_child">
+                                        <h4 class="text-left">Add an activity</h4> 
+                                        </a>
                                     </h5>
                                     </div>
 
@@ -143,9 +143,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseTwo_headingTwo_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo_collapseTwo_child" aria-expanded="false" aria-controls="collapseTwo_collapseTwo_child">
-                                        <h4>Update an activity</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo_collapseTwo_child" aria-expanded="false" aria-controls="collapseTwo_collapseTwo_child">
+                                        <h4 class="text-left">Update an activity</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseTwo_collapseTwo_child" class="collapse" aria-labelledby="collapseTwo_headingTwo_child" data-parent="#accordion_child_2">
@@ -159,9 +159,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseTwo_headingThree_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo_collapseThree_child" aria-expanded="false" aria-controls="collapseTwo_collapseThree_child">
-                                        <h4>Delete an activity</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo_collapseThree_child" aria-expanded="false" aria-controls="collapseTwo_collapseThree_child">
+                                        <h4 class="text-left">Delete an activity</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseTwo_collapseThree_child" class="collapse" aria-labelledby="collapseTwo_headingThree_child" data-parent="#accordion_child_2">
@@ -177,9 +177,9 @@
                     <div class="card">
                         <div class="card-header" id="headingThree">
                         <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <h4>Reminder</h4> 
-                            </button>
+                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <h4 class="text-left">Reminder</h4> 
+                            </a>
                         </h5>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
@@ -188,9 +188,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseThree_headingOne_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree_collapseOne_child" aria-expanded="true" aria-controls="collapseThree_collapseOne_child">
-                                        <h4>Add a reminder</h4> 
-                                        </button>
+                                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseThree_collapseOne_child" aria-expanded="true" aria-controls="collapseThree_collapseOne_child">
+                                        <h4 class="text-left">Add a reminder</h4> 
+                                        </a>
                                     </h5>
                                     </div>
 
@@ -206,9 +206,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseThree_headingTwo_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree_collapseTwo_child" aria-expanded="false" aria-controls="collapseThree_collapseTwo_child">
-                                        <h4>Update a reminder</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree_collapseTwo_child" aria-expanded="false" aria-controls="collapseThree_collapseTwo_child">
+                                        <h4 class="text-left">Update a reminder</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseThree_collapseTwo_child" class="collapse" aria-labelledby="collapseThree_headingTwo_child" data-parent="#accordion_child_3">
@@ -222,9 +222,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseThree_headingThree_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree_collapseThree_child" aria-expanded="false" aria-controls="collapseThree_collapseThree_child">
-                                        <h4>Mark a reminder as complete</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree_collapseThree_child" aria-expanded="false" aria-controls="collapseThree_collapseThree_child">
+                                        <h4 class="text-left">Mark a reminder as complete</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseThree_collapseThree_child" class="collapse" aria-labelledby="collapseThree_headingThree_child" data-parent="#accordion_child_3">
@@ -240,9 +240,9 @@
                     <div class="card">
                         <div class="card-header" id="headingFour">
                         <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            <h4>Gift</h4> 
-                            </button>
+                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <h4 class="text-left">Gift</h4> 
+                            </a>
                         </h5>
                         </div>
                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
@@ -251,9 +251,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseFour_headingOne_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour_collapseOne_child" aria-expanded="true" aria-controls="collapseFour_collapseOne_child">
-                                        <h4>Add a gift</h4> 
-                                        </button>
+                                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseFour_collapseOne_child" aria-expanded="true" aria-controls="collapseFour_collapseOne_child">
+                                        <h4 class="text-left">Add a gift</h4> 
+                                        </a>
                                     </h5>
                                     </div>
 
@@ -269,9 +269,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseFour_headingTwo_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour_collapseTwo_child" aria-expanded="false" aria-controls="collapseFour_collapseTwo_child">
-                                        <h4>Edit a gift</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour_collapseTwo_child" aria-expanded="false" aria-controls="collapseFour_collapseTwo_child">
+                                        <h4 class="text-left">Edit a gift</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseFour_collapseTwo_child" class="collapse" aria-labelledby="collapseFour_headingTwo_child" data-parent="#accordion_child_4">
@@ -285,9 +285,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseFour_headingThree_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour_collapseThree_child" aria-expanded="false" aria-controls="collapseFour_collapseThree_child">
-                                        <h4>Delete a gift</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour_collapseThree_child" aria-expanded="false" aria-controls="collapseFour_collapseThree_child">
+                                        <h4 class="text-left">Delete a gift</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseFour_collapseThree_child" class="collapse" aria-labelledby="collapseFour_headingThree_child" data-parent="#accordion_child_4">
@@ -301,11 +301,11 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingFive">
+                        <div class="card-header d-block" id="headingFive">
                         <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                            <h4>Debt</h4> 
-                            </button>
+                            <a class="btn btn-link collapsed " data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <h4 class="text-left">Debt</h4> 
+                            </a>
                         </h5>
                         </div>
                         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
@@ -314,9 +314,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseFive_headingOne_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFive_collapseOne_child" aria-expanded="true" aria-controls="collapseFive_collapseOne_child">
-                                        <h4>Add a debt</h4> 
-                                        </button>
+                                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseFive_collapseOne_child" aria-expanded="true" aria-controls="collapseFive_collapseOne_child">
+                                        <h4 class="text-left">Add a debt</h4> 
+                                        </a>
                                     </h5>
                                     </div>
 
@@ -332,9 +332,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseFive_headingTwo_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive_collapseTwo_child" aria-expanded="false" aria-controls="collapseFive_collapseTwo_child">
-                                        <h4>View and edit a debt</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive_collapseTwo_child" aria-expanded="false" aria-controls="collapseFive_collapseTwo_child">
+                                        <h4 class="text-left">View and edit a debt</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseFive_collapseTwo_child" class="collapse" aria-labelledby="collapseFive_headingTwo_child" data-parent="#accordion_child_5">
@@ -348,9 +348,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseFive_headingThree_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive_collapseThree_child" aria-expanded="false" aria-controls="collapseFive_collapseThree_child">
-                                        <h4>Mark a debt as complete</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive_collapseThree_child" aria-expanded="false" aria-controls="collapseFive_collapseThree_child">
+                                        <h4 class="text-left">Mark a debt as complete</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseFive_collapseThree_child" class="collapse" aria-labelledby="collapseFive_headingThree_child" data-parent="#accordion_child_5">
@@ -366,9 +366,9 @@
                     <div class="card">
                         <div class="card-header" id="headingSix">
                         <h5 class="mb-0">
-                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                            <h4>Life event and Timeline</h4> 
-                            </button>
+                            <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <h4 class="text-left">Life event and Timeline</h4> 
+                            </a>
                         </h5>
                         </div>
                         <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
@@ -378,9 +378,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseSix_headingOne_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseSix_collapseOne_child" aria-expanded="true" aria-controls="collapseSix_collapseOne_child">
-                                        <h4>Add a life event to the timeline</h4> 
-                                        </button>
+                                        <a class="btn btn-link" data-toggle="collapse" data-target="#collapseSix_collapseOne_child" aria-expanded="true" aria-controls="collapseSix_collapseOne_child">
+                                        <h4 class="text-left">Add a life event to the timeline</h4> 
+                                        </a>
                                     </h5>
                                     </div>
 
@@ -388,7 +388,7 @@
                                         <div class="card-body">
                                             <p>1. Go to the contact's profile.</p>
                                             <p>2. On the left bottom orange tab, click on Timeline.</p>
-                                            <p>3. Click on Add a new life event button.</p>
+                                            <p>3. Click on Add a new life event a.</p>
                                             <p>4. Enter the life event's details.</p>
                                             <p>5. Click Add to Contact's timeline.</p>
                                         </div>
@@ -397,9 +397,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseSix_headingTwo_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix_collapseTwo_child" aria-expanded="false" aria-controls="collapseSix_collapseTwo_child">
-                                        <h4>View or edit a life event</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix_collapseTwo_child" aria-expanded="false" aria-controls="collapseSix_collapseTwo_child">
+                                        <h4 class="text-left">View or edit a life event</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseSix_collapseTwo_child" class="collapse" aria-labelledby="collapseSix_headingTwo_child" data-parent="#accordion_child_6">
@@ -414,9 +414,9 @@
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseSix_headingThree_child">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix_collapseThree_child" aria-expanded="false" aria-controls="collapseSix_collapseThree_child">
-                                        <h4>Delete a life event</h4> 
-                                        </button>
+                                        <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix_collapseThree_child" aria-expanded="false" aria-controls="collapseSix_collapseThree_child">
+                                        <h4 class="text-left">Delete a life event</h4> 
+                                        </a>
                                     </h5>
                                     </div>
                                     <div id="collapseSix_collapseThree_child" class="collapse" aria-labelledby="collapseSix_headingThree_child" data-parent="#accordion_child_6">
