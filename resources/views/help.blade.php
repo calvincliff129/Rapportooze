@@ -19,8 +19,7 @@
 <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
 
 <div class="row justify-content-center">
-    <div class="col-8">
-    
+    <div class="col-md-8">
         <div class="card bg-transparent">
             <div class="card-body bg-help d-flex flex-row justify-content-center">
                 <div class="navbar-wrapper">
@@ -52,7 +51,6 @@
                             </button>
                         </h5>
                         </div>
-
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <div id="accordion_child_1">
@@ -249,8 +247,6 @@
                         </div>
                         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                         <div class="card-body">
-
-
                             <div id="accordion_child_4">
                                 <div class="card bg-default">
                                     <div class="card-header" id="collapseFour_headingOne_child">
@@ -301,7 +297,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         </div>
                     </div>
