@@ -5,14 +5,14 @@ namespace App\Models;
 use App\Models\Activity;
 use App\Models\Reminder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Laratrust\Traits\LaratrustUserTrait;
 
 class Contact extends Model
 {
     use LaratrustUserTrait;
-    use SoftDeletes;
+    // use SoftDeletes;
     use HasFactory;
 
     public function activities()
