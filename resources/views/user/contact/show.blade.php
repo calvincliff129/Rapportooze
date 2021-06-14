@@ -413,7 +413,7 @@
     <form action="{{ route('contact.destroy', $contact->id) }}" method="POST">
         {{ method_field('DELETE') }}
         {{ csrf_field() }}
-        <button class="btn btn-warning btn-link" style="font-size: 9px;">Delete contact</button>
+        <button class="btn btn-warning btn-link" style="font-size: 9px;">DELETE CONTACT (Careful! can't be reversed)</button>
     </form>
 </div>
 @endsection

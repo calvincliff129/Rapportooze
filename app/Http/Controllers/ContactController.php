@@ -418,13 +418,13 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        Activity::where('user_id', $contact->id)->delete();
-        Reminder::where('user_id', $contact->id)->delete();
-        Gift::where('user_id', $contact->id)->delete();
-        Debt::where('user_id', $contact->id)->delete();
-        Address::where('user_id', $contact->id)->delete();
-        Pet::where('user_id', $contact->id)->delete();
-        LifeEvent::where('user_id', $contact->id)->delete();
+        Activity::where('contact_id', $contact->id)->delete();
+        Reminder::where('contact_id', $contact->id)->delete();
+        Gift::where('contact_id', $contact->id)->delete();
+        Debt::where('contact_id', $contact->id)->delete();
+        Address::where('contact_id', $contact->id)->delete();
+        Pet::where('contact_id', $contact->id)->delete();
+        LifeEvent::where('contact_id', $contact->id)->delete();
 
         if ($contact->avatar = null)
         {
