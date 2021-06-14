@@ -426,11 +426,8 @@ class ContactController extends Controller
         Pet::where('contact_id', $contact->id)->delete();
         LifeEvent::where('contact_id', $contact->id)->delete();
 
-        if ($contact->avatar = null)
-        {
-            $path = 'avatars';
-            Storage::disk('s3')->delete($path.'/'.$contact->avatar);
-        }
+        $path = 'avatars';
+        Storage::disk('s3')->delete($path.'/'.$contact->avatar);
 
         Contact::where('id', $contact->id)->delete();
 
