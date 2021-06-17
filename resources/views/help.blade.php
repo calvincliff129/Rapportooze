@@ -404,10 +404,10 @@
                                     </div>
                                     <div id="collapseSix_collapseTwo_child" class="collapse" aria-labelledby="collapseSix_headingTwo_child" data-parent="#accordion_child_6">
                                         <div class="card-body">
-                                            <p>2. On the left bottom orange tab, click on Timeline to view the contact's timeline.</p>
-                                            <p>1. To edit, click on Edit.</p>
-                                            <p>2. Edit the life event's details.</p>
-                                            <p>3. Click Update life event.</p>                           
+                                            <p>1. On the left bottom orange tab, click on Timeline to view the contact's timeline.</p>
+                                            <p>2. To edit, click on Edit.</p>
+                                            <p>3. Edit the life event's details.</p>
+                                            <p>4. Click Update life event.</p>                           
                                         </div>
                                     </div>
                                 </div>

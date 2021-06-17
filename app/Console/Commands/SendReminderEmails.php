@@ -51,7 +51,8 @@ class SendReminderEmails extends Command
         //  Get all reminders
         $reminders = Reminder::with(['contact'])
                     ->whereMonth('reminder_date', Carbon::today()->month)
-                    ->whereDay('reminder_date', Carbon::today()->addDay(1)->day)
+                    ->whereDay('reminder_date','>=', Carbon::now())
+                    ->whereDay('reminder_date', '<=', Carbon::today()->addDay(2)->day)
                     ->where('deleted_at', NULL)
                     ->orderBy('reminder_date', 'asc')
                     ->get();
