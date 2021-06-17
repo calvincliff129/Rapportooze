@@ -41,6 +41,7 @@ class HomeController extends Controller
         $lastUpdated = Contact::where('user_id', $userId)->orderBy('updated_at', 'desc')->paginate(3);
 
         $reminderMonth = Reminder::where('user_id', $userId)->whereMonth('reminder_date', $month->month)
+                                    ->whereDay('reminder_date', '>=', Carbon::today()->subDay(1)->day)
                                     ->orderBy('reminder_date', 'desc')
                                     ->paginate(5);
         $reminderMonthTwo = Reminder::where('user_id', $userId)->whereMonth('reminder_date', $monthTwo->month)
