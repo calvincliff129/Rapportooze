@@ -1,7 +1,7 @@
 @component('mail::message')
 # Upcoming reminders.
 
-Hey there! You have some reminders to follow up.
+Hey there! You have some reminder(s) to follow up.
 
 @component('mail::table')
 |Reminder|Contact|Date|
