@@ -421,7 +421,7 @@
                                     </div>
                                     <div id="collapseSix_collapseThree_child" class="collapse" aria-labelledby="collapseSix_headingThree_child" data-parent="#accordion_child_6">
                                         <div class="card-body">
-                                            <p>1. On invidual life event, click on Delete.</p>
+                                            <p>1. On individual life event, click on Delete.</p>
                                         </div>
                                     </div>
                                 </div>
